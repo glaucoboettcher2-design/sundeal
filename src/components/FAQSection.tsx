@@ -122,7 +122,7 @@ const FAQSection = () => {
         }} />
 
         {/* Dynamic Background Marquees */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden flex flex-col justify-center items-center gap-3 md:gap-5" style={{ zIndex: 0 }}>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden flex flex-col justify-center items-center gap-1 md:gap-2" style={{ zIndex: 0 }}>
           <motion.div
             style={{ x: x1 }}
             className="whitespace-nowrap font-mont font-black select-none opacity-50 blur-[5px]"

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const faqData = [
   {
@@ -97,8 +97,14 @@ const FAQSection = () => {
     offset: ["start end", "end start"],
   });
 
-  const x1 = useTransform(scrollYProgress, [0, 1], ["-15%", "5%"]);
-  const x2 = useTransform(scrollYProgress, [0, 1], ["5%", "-15%"]);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const x1 = useTransform(smoothProgress, [0, 1], ["-15%", "5%"]);
+  const x2 = useTransform(smoothProgress, [0, 1], ["5%", "-15%"]);
 
   return (
     <>
@@ -116,20 +122,20 @@ const FAQSection = () => {
         }} />
 
         {/* Dynamic Background Marquees */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden flex flex-col justify-center items-center gap-16 md:gap-32" style={{ zIndex: 0 }}>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden flex flex-col justify-center items-center gap-4 md:gap-8" style={{ zIndex: 0 }}>
           <motion.div
             style={{ x: x1 }}
-            className="whitespace-nowrap font-mont font-black select-none opacity-40 blur-[3px]"
+            className="whitespace-nowrap font-mont font-black select-none opacity-50 blur-[3px]"
           >
-            <span style={{ fontSize: "clamp(12rem, 20vw, 22rem)", color: "hsl(48 95% 55%)", letterSpacing: "-0.04em" }}>
+            <span style={{ fontSize: "clamp(10rem, 16vw, 18rem)", color: "transparent", WebkitTextStroke: "4px hsl(48 95% 55%)", letterSpacing: "-0.04em" }}>
               SUNDEAL • ECONOMIA • SUNDEAL • ECONOMIA • SUNDEAL • ECONOMIA • SUNDEAL • ECONOMIA
             </span>
           </motion.div>
           <motion.div
             style={{ x: x2 }}
-            className="whitespace-nowrap font-mont font-black select-none opacity-40 blur-[3px]"
+            className="whitespace-nowrap font-mont font-black select-none opacity-50 blur-[3px]"
           >
-            <span style={{ fontSize: "clamp(12rem, 20vw, 22rem)", color: "hsl(48 95% 55%)", letterSpacing: "-0.04em" }}>
+            <span style={{ fontSize: "clamp(10rem, 16vw, 18rem)", color: "transparent", WebkitTextStroke: "4px hsl(48 95% 55%)", letterSpacing: "-0.04em" }}>
               ENERGIA • DESCONTO • ENERGIA • DESCONTO • ENERGIA • DESCONTO • ENERGIA • DESCONTO
             </span>
           </motion.div>

@@ -98,13 +98,13 @@ const FAQSection = () => {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 50,
+    damping: 25,
     restDelta: 0.001
   });
 
-  const x1 = useTransform(smoothProgress, [0, 1], ["-15%", "5%"]);
-  const x2 = useTransform(smoothProgress, [0, 1], ["5%", "-15%"]);
+  const x1 = useTransform(smoothProgress, [0, 1], ["-8%", "2%"]);
+  const x2 = useTransform(smoothProgress, [0, 1], ["2%", "-8%"]);
 
   return (
     <>
@@ -122,9 +122,9 @@ const FAQSection = () => {
         }} />
 
         {/* Dynamic Background Marquees */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden flex flex-col justify-center items-center gap-4 md:gap-8" style={{ zIndex: 0 }}>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden flex flex-col justify-center items-center gap-0 md:gap-1" style={{ zIndex: 0 }}>
           <motion.div
-            style={{ x: x1 }}
+            style={{ x: x1, lineHeight: 0.9 }}
             className="whitespace-nowrap font-mont font-black select-none opacity-50 blur-[5px]"
           >
             <span style={{ fontSize: "clamp(12rem, 18vw, 22rem)", color: "transparent", WebkitTextStroke: "4px hsl(48 95% 55%)", letterSpacing: "-0.04em" }}>
@@ -132,7 +132,7 @@ const FAQSection = () => {
             </span>
           </motion.div>
           <motion.div
-            style={{ x: x2 }}
+            style={{ x: x2, lineHeight: 0.9 }}
             className="whitespace-nowrap font-mont font-black select-none opacity-50 blur-[5px]"
           >
             <span style={{ fontSize: "clamp(12rem, 18vw, 22rem)", color: "transparent", WebkitTextStroke: "4px hsl(48 95% 55%)", letterSpacing: "-0.04em" }}>

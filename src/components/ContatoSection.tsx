@@ -54,7 +54,7 @@ const ContatoSection = () => {
           className="reveal-item opacity-0 translate-y-8 translate-x-8 blur-md transition-all duration-700 relative overflow-hidden rounded-[36px] px-8 md:px-16 py-12 md:py-14 text-center"
           style={{
             background:
-              "linear-gradient(135deg, hsl(72 65% 36%) 0%, hsl(72 68% 30%) 55%, hsl(72 71% 26%) 100%)",
+              "linear-gradient(135deg, hsl(72 65% 32%) 0%, hsl(72 68% 28%) 55%, hsl(72 71% 24%) 100%)",
             boxShadow:
               "0 30px 60px -25px hsl(72 65% 12% / 0.45), inset 0 1px 0 hsl(0 0% 100% / 0.12)",
           }}

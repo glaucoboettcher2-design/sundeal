@@ -154,9 +154,9 @@ const ComparativoSection = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex-1 flex flex-col rounded-[2rem] overflow-hidden relative"
             style={{
-              background: "linear-gradient(160deg, hsl(0 0% 42%) 0%, hsl(0 0% 30%) 100%)",
-              border: "1px solid hsl(0 0% 48%)",
-              boxShadow: "0 30px 60px -20px rgba(0,0,0,0.3)",
+              background: "linear-gradient(160deg, hsl(0 0% 58%) 0%, hsl(0 0% 46%) 100%)",
+              border: "1px solid hsl(0 0% 64%)",
+              boxShadow: "0 30px 60px -20px rgba(0,0,0,0.2)",
             }}
           >
             {/* Header Tradicional */}
@@ -164,9 +164,9 @@ const ComparativoSection = () => {
               <div
                 className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
                 style={{
-                  background: "linear-gradient(135deg, hsl(0 0% 50%) 0%, hsl(0 0% 36%) 100%)",
-                  boxShadow: "inset 0 2px 4px rgba(255,255,255,0.15), 0 10px 20px -5px rgba(0,0,0,0.3)",
-                  border: "1px solid rgba(255,255,255,0.2)"
+                  background: "linear-gradient(135deg, hsl(0 0% 65%) 0%, hsl(0 0% 52%) 100%)",
+                  boxShadow: "inset 0 2px 4px rgba(255,255,255,0.2), 0 10px 20px -5px rgba(0,0,0,0.2)",
+                  border: "1px solid rgba(255,255,255,0.3)"
                 }}
               >
                 <Home className="w-10 h-10" style={{ color: "white", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))" }} strokeWidth={1.5} />
@@ -204,9 +204,9 @@ const ComparativoSection = () => {
                       <div
                         className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden"
                         style={{
-                          background: "hsl(0 0% 36%)",
-                          boxShadow: "inset 0 1px 2px rgba(255,255,255,0.1), 0 4px 8px rgba(0,0,0,0.2)",
-                          border: "1px solid rgba(255,255,255,0.15)"
+                          background: "hsl(0 0% 52%)",
+                          boxShadow: "inset 0 1px 2px rgba(255,255,255,0.2), 0 4px 8px rgba(0,0,0,0.15)",
+                          border: "1px solid rgba(255,255,255,0.25)"
                         }}
                       >
                         <img src={step.image} alt={step.label} className="w-full h-full object-cover" />
@@ -228,9 +228,9 @@ const ComparativoSection = () => {
             <div
               className="p-6 flex flex-col sm:flex-row items-center justify-center gap-3 border-t"
               style={{
-                background: "hsl(0 0% 28%)",
-                borderColor: "hsl(0 0% 38%)",
-                color: "rgba(255,255,255,0.6)",
+                background: "hsl(0 0% 44%)",
+                borderColor: "hsl(0 0% 52%)",
+                color: "rgba(255,255,255,0.8)",
               }}
             >
               <Clock className="w-5 h-5 opacity-70" strokeWidth={2} />

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const faqData = [
   {
@@ -92,6 +92,14 @@ const FAQSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const x1 = useTransform(scrollYProgress, [0, 1], ["-15%", "5%"]);
+  const x2 = useTransform(scrollYProgress, [0, 1], ["5%", "-15%"]);
+
   return (
     <>
       <div className="h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(72 65% 45% / 0.22), transparent)" }} />
@@ -107,28 +115,27 @@ const FAQSection = () => {
           background: "radial-gradient(ellipse at 90% 10%, hsl(72 65% 45% / 0.08) 0%, transparent 50%)"
         }} />
 
-        <div className="relative z-10 max-w-[720px] mx-auto">
-          {/* Letratrio decorativo vertical direito (Ancorado nas perguntas) */}
-          <div
-            className="absolute -right-4 md:-right-12 lg:-right-32 xl:-right-48 top-[100px] lg:top-[40px] xl:top-[-20px] bottom-0 flex items-start justify-end pointer-events-none select-none"
-            style={{ zIndex: -1 }}
+        {/* Dynamic Background Marquees */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden flex flex-col justify-center items-center gap-16 md:gap-32" style={{ zIndex: 0 }}>
+          <motion.div
+            style={{ x: x1 }}
+            className="whitespace-nowrap font-mont font-black select-none opacity-[0.25] blur-[4px]"
           >
-            <span
-              className="font-mont font-black"
-              style={{
-                fontSize: "clamp(9.5rem, 18vw, 14.5rem)",
-                color: "transparent",
-                WebkitTextStroke: "3px hsl(48 100% 72%)",
-                writingMode: "vertical-rl",
-                letterSpacing: "-0.02em",
-                opacity: 0.6,
-                whiteSpace: "nowrap",
-                lineHeight: 1,
-              }}
-            >
-              Sundeal
+            <span style={{ fontSize: "clamp(8rem, 16vw, 18rem)", color: "transparent", WebkitTextStroke: "3px hsl(48 100% 72%)" }}>
+              SUNDEAL • ECONOMIA • SUNDEAL • ECONOMIA • SUNDEAL • ECONOMIA • SUNDEAL • ECONOMIA
             </span>
-          </div>
+          </motion.div>
+          <motion.div
+            style={{ x: x2 }}
+            className="whitespace-nowrap font-mont font-black select-none opacity-[0.25] blur-[4px]"
+          >
+            <span style={{ fontSize: "clamp(8rem, 16vw, 18rem)", color: "transparent", WebkitTextStroke: "3px hsl(48 100% 72%)" }}>
+              ENERGIA • DESCONTO • ENERGIA • DESCONTO • ENERGIA • DESCONTO • ENERGIA • DESCONTO
+            </span>
+          </motion.div>
+        </div>
+
+        <div className="relative z-10 max-w-[720px] mx-auto">
           <div className="mb-12">
             <span className="reveal-item opacity-0 translate-y-8 translate-x-8 blur-md transition-all duration-700 block text-xs font-bold tracking-[0.12em] uppercase text-sundeal-green-mid mb-3.5">
               Dúvidas frequentes

@@ -119,17 +119,17 @@ const FAQSection = () => {
         <div className="absolute inset-0 pointer-events-none overflow-hidden flex flex-col justify-center items-center gap-16 md:gap-32" style={{ zIndex: 0 }}>
           <motion.div
             style={{ x: x1 }}
-            className="whitespace-nowrap font-mont font-black select-none opacity-[0.25] blur-[4px]"
+            className="whitespace-nowrap font-mont font-black select-none opacity-40 blur-[3px]"
           >
-            <span style={{ fontSize: "clamp(8rem, 16vw, 18rem)", color: "transparent", WebkitTextStroke: "3px hsl(48 100% 72%)" }}>
+            <span style={{ fontSize: "clamp(12rem, 20vw, 22rem)", color: "hsl(48 95% 55%)", letterSpacing: "-0.04em" }}>
               SUNDEAL • ECONOMIA • SUNDEAL • ECONOMIA • SUNDEAL • ECONOMIA • SUNDEAL • ECONOMIA
             </span>
           </motion.div>
           <motion.div
             style={{ x: x2 }}
-            className="whitespace-nowrap font-mont font-black select-none opacity-[0.25] blur-[4px]"
+            className="whitespace-nowrap font-mont font-black select-none opacity-40 blur-[3px]"
           >
-            <span style={{ fontSize: "clamp(8rem, 16vw, 18rem)", color: "transparent", WebkitTextStroke: "3px hsl(48 100% 72%)" }}>
+            <span style={{ fontSize: "clamp(12rem, 20vw, 22rem)", color: "hsl(48 95% 55%)", letterSpacing: "-0.04em" }}>
               ENERGIA • DESCONTO • ENERGIA • DESCONTO • ENERGIA • DESCONTO • ENERGIA • DESCONTO
             </span>
           </motion.div>

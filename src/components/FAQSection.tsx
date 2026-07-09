@@ -103,7 +103,7 @@ const FAQSection = () => {
     restDelta: 0.001
   });
 
-  const yParallax = useTransform(smoothProgress, [0, 1], ["15%", "-15%"]);
+  const yParallax = useTransform(smoothProgress, [0, 1], ["40%", "-40%"]);
 
   return (
     <>
@@ -126,7 +126,7 @@ const FAQSection = () => {
             src="/logo-bg.svg"
             alt=""
             style={{ y: yParallax }}
-            className="w-[80vw] max-w-[800px] object-contain opacity-10 blur-[6px] select-none"
+            className="w-[140vw] max-w-[1400px] object-contain opacity-[0.18] blur-[3px] select-none"
           />
         </div>
 

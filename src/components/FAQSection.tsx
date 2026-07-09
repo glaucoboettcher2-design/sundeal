@@ -216,14 +216,7 @@ const FAQSection = () => {
               }}
             />
 
-            {/* New Green Symbol Logo Background inside CTA */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden mix-blend-overlay">
-              <img 
-                src="/logo-letreiro-simbolo.png" 
-                alt="" 
-                className="absolute top-1/2 left-1/2 w-[150%] min-w-[1400px] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain opacity-[0.25] blur-[4px] select-none" 
-              />
-            </div>
+
 
             <div className="relative z-10 flex flex-col items-center">
               <span className="block text-xs md:text-sm font-bold tracking-[0.14em] uppercase text-on-dark-strong mb-3 dark-section-text-shadow">

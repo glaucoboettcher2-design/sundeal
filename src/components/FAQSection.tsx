@@ -216,6 +216,15 @@ const FAQSection = () => {
               }}
             />
 
+            {/* White Logo Background inside CTA */}
+            <div className="absolute inset-0 pointer-events-none flex justify-center items-center overflow-hidden mix-blend-overlay">
+              <img 
+                src="/logo-branca.svg" 
+                alt="" 
+                className="w-[120%] min-w-[600px] object-contain opacity-[0.25] blur-[4px] select-none translate-y-[15%] translate-x-[10%]" 
+              />
+            </div>
+
             <div className="relative z-10 flex flex-col items-center">
               <span className="block text-xs md:text-sm font-bold tracking-[0.14em] uppercase text-on-dark-strong mb-3 dark-section-text-shadow">
                 Atendimento direto

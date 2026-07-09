@@ -121,7 +121,7 @@ const FAQSection = () => {
     restDelta: 0.001
   });
 
-  const yParallax = useTransform(smoothProgress, [0, 1], ["2.5%", "-2.5%"]);
+  const yParallax = useTransform(smoothProgress, [0, 1], ["4%", "-4%"]);
 
   return (
     <>
@@ -146,12 +146,12 @@ const FAQSection = () => {
               position: 'absolute',
               top: '50%',
               left: '65%', // shifted right
-              width: '3500px',
-              height: '3500px',
-              marginLeft: '-1750px', // center horizontally based on new width
-              marginTop: '-1750px',  // center vertically
+              width: '4000px',
+              height: '4000px',
+              marginLeft: '-2000px', // center horizontally based on new width
+              marginTop: '-2000px',  // center vertically
             }}
-            className="opacity-[0.20] blur-[8px] select-none"
+            className="opacity-[0.15] blur-[8px] select-none"
           >
             <img
               src="/logo-bg.svg"

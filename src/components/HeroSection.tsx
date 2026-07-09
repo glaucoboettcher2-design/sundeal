@@ -208,7 +208,7 @@ export const HeroSection = () => {
                 </div>
 
                 <p
-                  className="animate-heroContent font-montserrat font-normal text-[0.92rem] md:text-[1rem] lg:text-[1.05rem] leading-relaxed max-w-[620px] lg:max-w-none mt-6 md:mt-8 lg:mt-14"
+                  className="animate-heroContent font-montserrat font-normal text-[1.05rem] md:text-[1.15rem] lg:text-[1.25rem] leading-relaxed max-w-[620px] lg:max-w-[700px] mt-6 md:mt-8 lg:mt-14"
                   style={{ animationDelay: "3.0s", color: "hsl(0 0% 98%)", filter: "drop-shadow(0 4px 4px rgba(0,0,0,0.4)) drop-shadow(0 2px 2px rgba(0,0,0,0.28))" }}
                 >
                   Sua empresa já paga energia todo mês. Agora, com a Sundeal, paga

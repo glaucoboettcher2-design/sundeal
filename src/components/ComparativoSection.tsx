@@ -11,6 +11,8 @@ import {
   Calendar
 } from "lucide-react";
 
+import houseIcon from "@/assets/premium_3d_house.png";
+import sundealIcon from "@/assets/premium_3d_sundeal.png";
 import solarPanelsBg from "@/assets/solar-panels-bg.jpg";
 import sundealStep1 from "@/assets/sundeal-step-1.png";
 import sundealStep2 from "@/assets/sundeal-step-2.png";
@@ -36,7 +38,6 @@ const traditionalSteps = [
   { image: tradStep6, label: "Instalação das placas" },
   { image: tradStep7, label: "Vistoria e ativação" },
   { image: tradStep8, label: "Retorno em 4-7 anos" },
-  { image: tradStep9, label: "Manutenção periódica" },
 ];
 
 const sundealSteps = [
@@ -73,14 +74,9 @@ const ComparativoSection = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[0.7rem] font-bold tracking-[0.2em] uppercase mb-6"
-            style={{ 
-              background: "hsl(72 60% 90%)",
-              color: "hsl(72 70% 25%)",
-              boxShadow: "0 4px 12px rgba(138, 179, 14, 0.15)"
-            }}
+            className="block text-xs font-bold tracking-[0.18em] uppercase mb-3.5"
+            style={{ color: "hsl(72 65% 25%)" }}
           >
-            <Zap className="w-4 h-4" />
             O Fim da Burocracia
           </motion.span>
           <motion.h2
@@ -162,14 +158,13 @@ const ComparativoSection = () => {
             {/* Header Tradicional */}
             <div className="px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
               <div
-                className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
+                className="w-20 h-20 rounded-full flex items-center justify-center mb-6 overflow-hidden bg-white"
                 style={{
-                  background: "white",
-                  boxShadow: "inset 0 2px 4px rgba(255,255,255,0.8), 0 10px 20px -5px rgba(0,0,0,0.1)",
+                  boxShadow: "0 10px 20px -5px rgba(0,0,0,0.1), inset 0 2px 4px rgba(0,0,0,0.05)",
                   border: "1px solid rgba(0,0,0,0.05)"
                 }}
               >
-                <Home className="w-10 h-10" style={{ color: "hsl(0 0% 40%)", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))" }} strokeWidth={1.5} />
+                <img src={houseIcon} alt="Tradicional" className="w-full h-full object-cover" />
               </div>
               <h3
                 className="font-mont font-extrabold text-[1.8rem] leading-tight mb-4"
@@ -192,34 +187,28 @@ const ComparativoSection = () => {
               </div>
             </div>
 
-            {/* Steps Tradicional */}
             <div className="px-8 md:px-12 pb-12 flex-1 flex flex-col justify-center">
-              <div className="relative">
-                <div className="absolute left-[15px] top-4 bottom-4 w-[2px]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.15), transparent)" }} />
-                
-                <div className="flex flex-col gap-6">
-                  {traditionalSteps.map((step, idx) => (
-                    <div key={idx} className="flex items-center gap-5 relative z-10">
-                      <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden"
-                        style={{
-                          background: "white",
-                          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                          border: "1px solid rgba(0,0,0,0.05)"
-                        }}
-                      >
-                        <img src={step.image} alt={step.label} className="w-full h-full object-cover" />
-                      </div>
-                      <span
-                        className="text-[0.95rem] font-semibold leading-tight"
-                        style={{ color: "hsl(0 0% 25%)" }}
-                      >
-                        <span className="mr-2" style={{ color: "rgba(0,0,0,0.3)" }}>{idx + 1}.</span>
-                        {step.label}
-                      </span>
+              <div className="grid grid-cols-1 md:grid-flow-col md:grid-rows-4 gap-x-4 gap-y-6 relative">
+                {traditionalSteps.map((step, idx) => (
+                  <div key={idx} className="flex items-center gap-5 relative z-10">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-white"
+                      style={{
+                        boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                        border: "1px solid rgba(0,0,0,0.05)"
+                      }}
+                    >
+                      <img src={step.image} alt={step.label} className="w-full h-full object-cover" />
                     </div>
-                  ))}
-                </div>
+                    <span
+                      className="text-[0.95rem] font-semibold leading-tight"
+                      style={{ color: "hsl(0 0% 25%)" }}
+                    >
+                      <span className="mr-2" style={{ color: "rgba(0,0,0,0.3)" }}>{idx + 1}.</span>
+                      {step.label}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -305,14 +294,13 @@ const ComparativoSection = () => {
             <div className="relative z-10 px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
               {/* Ícone 3D Sundeal */}
               <div
-                className="w-24 h-24 rounded-3xl flex items-center justify-center mb-6 relative group"
+                className="w-24 h-24 rounded-full flex items-center justify-center mb-6 relative group overflow-hidden bg-white"
                 style={{
-                  background: "linear-gradient(135deg, hsl(48 99% 55%) 0%, hsl(42 99% 45%) 100%)",
-                  boxShadow: "0 20px 40px -10px rgba(220, 160, 0, 0.6), inset 0 4px 8px rgba(255,255,255,0.5), inset 0 -4px 8px rgba(0,0,0,0.2)",
-                  border: "1px solid rgba(255,255,255,0.4)"
+                  boxShadow: "0 20px 40px -10px rgba(220, 160, 0, 0.6), inset 0 4px 8px rgba(0,0,0,0.1)",
+                  border: "2px solid rgba(255,255,255,0.8)"
                 }}
               >
-                <Sun className="w-12 h-12 text-white drop-shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12" strokeWidth={2} />
+                <img src={sundealIcon} alt="Sundeal" className="w-[110%] h-[110%] object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
               </div>
               <h3
                 className="font-mont font-extrabold text-[2rem] leading-tight mb-4"

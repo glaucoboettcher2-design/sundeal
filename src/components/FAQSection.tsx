@@ -221,7 +221,7 @@ const FAQSection = () => {
               <img 
                 src="/logo-simbolo-verde.svg" 
                 alt="" 
-                className="w-[150%] min-w-[1400px] max-w-none object-contain opacity-[0.25] blur-[4px] select-none translate-y-[10%]" 
+                className="w-[250%] min-w-[2400px] max-w-none object-contain opacity-[0.25] blur-[4px] select-none translate-y-[10%]" 
               />
             </div>
 

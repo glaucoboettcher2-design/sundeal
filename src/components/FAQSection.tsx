@@ -123,7 +123,7 @@ const FAQSection = () => {
         {/* Dynamic Background Logo */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-center items-center" style={{ zIndex: 0 }}>
           <motion.img
-            src="/favicon.png"
+            src="/logo-bg.svg"
             alt=""
             style={{ y: yParallax }}
             className="w-[80vw] max-w-[800px] object-contain opacity-10 blur-[6px] select-none"

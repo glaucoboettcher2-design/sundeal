@@ -90,6 +90,7 @@ export const HeroSection = () => {
           <div className="flex-1 text-center md:text-left md:mt-10 lg:mt-16">
             {/* Title - always full width */}
             <div className="mb-10 md:mb-12 lg:mb-10">
+              <div className="inline-flex flex-col items-center md:items-start">
               <motion.h1
                 variants={titleVariants}
                 initial="hidden"
@@ -115,13 +116,14 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-                className="h-[2px] w-64 md:w-96 mt-8 mx-auto origin-center"
+                className="h-[2px] w-full max-w-[85%] md:max-w-[90%] mt-8 self-center origin-center"
                 style={{
                   background: "linear-gradient(90deg, transparent 0%, hsl(48 99% 55%) 50%, transparent 100%)",
                   borderRadius: "50%",
                   boxShadow: "0 2px 10px rgba(220,160,0,0.5)"
                 }}
               />
+              </div>
             </div>
 
             {/* Tablet: subtitles + video side by side */}

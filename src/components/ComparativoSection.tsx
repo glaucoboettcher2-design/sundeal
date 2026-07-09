@@ -233,7 +233,7 @@ const ComparativoSection = () => {
               }}
             >
               <Clock className="w-5 h-5 opacity-70" strokeWidth={2} />
-              <span className="text-[0.85rem] font-bold tracking-wide text-center">
+              <span className="text-[0.95rem] md:text-[1.05rem] font-bold tracking-wide text-center">
                 Processo longo • Alto investimento
               </span>
             </div>
@@ -241,10 +241,10 @@ const ComparativoSection = () => {
 
           {/* VS Badge Central (Absolute on Desktop, block on Mobile) */}
           <motion.div
-            initial={{ scale: 0, opacity: 0, rotate: -45 }}
-            animate={isInView ? { scale: 1, opacity: 1, rotate: 0 } : {}}
+            initial={{ scale: 0, opacity: 0, rotate: -45, x: "-50%", y: "-50%" }}
+            animate={isInView ? { scale: 1, opacity: 1, rotate: 0, x: "-50%", y: "-50%" } : {}}
             transition={{ duration: 0.8, delay: 1, type: "spring", bounce: 0.6 }}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-16 h-16 rounded-full hidden lg:flex items-center justify-center"
+            className="absolute left-1/2 top-1/2 z-30 w-16 h-16 rounded-full hidden lg:flex items-center justify-center"
             style={{
               background: "linear-gradient(135deg, hsl(48 99% 55%) 0%, hsl(42 99% 48%) 100%)",
               boxShadow: "0 10px 20px -5px rgba(220, 160, 0, 0.6), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.2)",
@@ -376,7 +376,7 @@ const ComparativoSection = () => {
               }}
             >
               <CheckCircle2 className="w-5 h-5 drop-shadow-md" strokeWidth={2.5} />
-              <span className="text-[0.85rem] font-bold tracking-wide text-white text-center">
+              <span className="text-[0.95rem] md:text-[1.05rem] font-bold tracking-wide text-white text-center">
                 Rápido • Sem investimento • Comece hoje
               </span>
             </div>

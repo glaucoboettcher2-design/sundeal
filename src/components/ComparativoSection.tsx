@@ -145,18 +145,18 @@ const ComparativoSection = () => {
         </div>
 
         {/* Cards Container */}
-        <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-16 items-stretch">
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
           
-          {/* Card Esquerdo: Tradicional (Desaturado, Complexo) */}
+          {/* Card Esquerdo: Tradicional (Desaturado, Claro) */}
           <motion.div
             initial={{ opacity: 0, x: -40, rotateY: 10 }}
             animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex-1 flex flex-col rounded-[2rem] overflow-hidden relative"
             style={{
-              background: "linear-gradient(160deg, hsl(0 0% 58%) 0%, hsl(0 0% 46%) 100%)",
-              border: "1px solid hsl(0 0% 64%)",
-              boxShadow: "0 30px 60px -20px rgba(0,0,0,0.2)",
+              background: "linear-gradient(160deg, hsl(0 0% 92%) 0%, hsl(0 0% 82%) 100%)",
+              border: "1px solid hsl(0 0% 100%)",
+              boxShadow: "0 30px 60px -20px rgba(0,0,0,0.1)",
             }}
           >
             {/* Header Tradicional */}
@@ -164,39 +164,38 @@ const ComparativoSection = () => {
               <div
                 className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
                 style={{
-                  background: "linear-gradient(135deg, hsl(0 0% 65%) 0%, hsl(0 0% 52%) 100%)",
-                  boxShadow: "inset 0 2px 4px rgba(255,255,255,0.2), 0 10px 20px -5px rgba(0,0,0,0.2)",
-                  border: "1px solid rgba(255,255,255,0.3)"
+                  background: "white",
+                  boxShadow: "inset 0 2px 4px rgba(255,255,255,0.8), 0 10px 20px -5px rgba(0,0,0,0.1)",
+                  border: "1px solid rgba(0,0,0,0.05)"
                 }}
               >
-                <Home className="w-10 h-10" style={{ color: "white", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))" }} strokeWidth={1.5} />
+                <Home className="w-10 h-10" style={{ color: "hsl(0 0% 40%)", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))" }} strokeWidth={1.5} />
               </div>
               <h3
                 className="font-mont font-extrabold text-[1.8rem] leading-tight mb-4"
-                style={{ color: "white" }}
+                style={{ color: "hsl(0 0% 15%)" }}
               >
                 Instalação
                 <br />
-                <span style={{ color: "hsl(0 90% 60%)" }}>Tradicional</span>
+                <span style={{ color: "hsl(0 80% 50%)" }}>Tradicional</span>
               </h3>
               
               <div className="flex items-center gap-3 mt-2">
-                <div className="h-[1px] w-6" style={{ background: "rgba(255,255,255,0.3)" }} />
+                <div className="h-[1px] w-6" style={{ background: "rgba(0,0,0,0.15)" }} />
                 <span
                   className="text-[0.75rem] font-bold tracking-[0.1em] uppercase"
-                  style={{ color: "rgba(255,255,255,0.6)" }}
+                  style={{ color: "rgba(0,0,0,0.5)" }}
                 >
                   Mais etapas. Mais tempo. Mais investimento.
                 </span>
-                <div className="h-[1px] w-6" style={{ background: "rgba(255,255,255,0.3)" }} />
+                <div className="h-[1px] w-6" style={{ background: "rgba(0,0,0,0.15)" }} />
               </div>
             </div>
 
             {/* Steps Tradicional */}
             <div className="px-8 md:px-12 pb-12 flex-1 flex flex-col justify-center">
               <div className="relative">
-                {/* Linha vertical conectando os passos */}
-                <div className="absolute left-[15px] top-4 bottom-4 w-[2px]" style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0.25), transparent)" }} />
+                <div className="absolute left-[15px] top-4 bottom-4 w-[2px]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.15), transparent)" }} />
                 
                 <div className="flex flex-col gap-6">
                   {traditionalSteps.map((step, idx) => (
@@ -204,18 +203,18 @@ const ComparativoSection = () => {
                       <div
                         className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden"
                         style={{
-                          background: "hsl(0 0% 52%)",
-                          boxShadow: "inset 0 1px 2px rgba(255,255,255,0.2), 0 4px 8px rgba(0,0,0,0.15)",
-                          border: "1px solid rgba(255,255,255,0.25)"
+                          background: "white",
+                          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                          border: "1px solid rgba(0,0,0,0.05)"
                         }}
                       >
                         <img src={step.image} alt={step.label} className="w-full h-full object-cover" />
                       </div>
                       <span
                         className="text-[0.95rem] font-semibold leading-tight"
-                        style={{ color: "white" }}
+                        style={{ color: "hsl(0 0% 25%)" }}
                       >
-                        <span className="mr-2" style={{ color: "rgba(255,255,255,0.4)" }}>{idx + 1}.</span>
+                        <span className="mr-2" style={{ color: "rgba(0,0,0,0.3)" }}>{idx + 1}.</span>
                         {step.label}
                       </span>
                     </div>
@@ -228,9 +227,9 @@ const ComparativoSection = () => {
             <div
               className="p-6 flex flex-col sm:flex-row items-center justify-center gap-3 border-t"
               style={{
-                background: "hsl(0 0% 44%)",
-                borderColor: "hsl(0 0% 52%)",
-                color: "rgba(255,255,255,0.8)",
+                background: "rgba(0,0,0,0.04)",
+                borderColor: "rgba(0,0,0,0.08)",
+                color: "hsl(0 0% 35%)",
               }}
             >
               <Clock className="w-5 h-5 opacity-70" strokeWidth={2} />

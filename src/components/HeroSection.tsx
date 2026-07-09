@@ -115,11 +115,11 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-                className="h-[4px] w-32 md:w-56 mt-8 mx-auto md:mx-0 origin-center"
+                className="h-[2px] w-64 md:w-96 mt-8 mx-auto origin-center"
                 style={{
                   background: "linear-gradient(90deg, transparent 0%, hsl(48 99% 55%) 50%, transparent 100%)",
                   borderRadius: "50%",
-                  boxShadow: "0 4px 14px rgba(220,160,0,0.6)"
+                  boxShadow: "0 2px 10px rgba(220,160,0,0.5)"
                 }}
               />
             </div>

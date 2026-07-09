@@ -11,8 +11,8 @@ import {
   Calendar
 } from "lucide-react";
 
-import houseIcon from "@/assets/premium_3d_house.png";
-import sundealIcon from "@/assets/premium_3d_sundeal.png";
+import houseIcon from "@/assets/premium_3d_house_v2.png";
+import sundealIcon from "@/assets/premium_3d_sundeal_v2.png";
 import solarPanelsBg from "@/assets/solar-panels-bg.jpg";
 import sundealStep1 from "@/assets/sundeal-step-1.png";
 import sundealStep2 from "@/assets/sundeal-step-2.png";

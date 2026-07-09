@@ -151,7 +151,7 @@ const FAQSection = () => {
               marginLeft: '-2000px', // center horizontally based on new width
               marginTop: '-2000px',  // center vertically
             }}
-            className="opacity-[0.15] blur-none select-none"
+            className="opacity-[0.18] blur-[2px] select-none"
           >
             <img
               src="/logo-bg.svg"

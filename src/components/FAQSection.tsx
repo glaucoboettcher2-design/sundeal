@@ -126,7 +126,7 @@ const FAQSection = () => {
             src="/logo-bg.svg"
             alt=""
             style={{ y: yParallax }}
-            className="w-[250vw] max-w-[2500px] object-contain opacity-[0.12] blur-[5px] select-none"
+            className="w-[300vw] min-w-[2800px] translate-x-[15%] object-contain opacity-[0.12] blur-[5px] select-none"
           />
         </div>
 

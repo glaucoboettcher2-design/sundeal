@@ -244,7 +244,7 @@ const ComparativoSection = () => {
             initial={{ scale: 0, opacity: 0, rotate: -45, x: "-50%", y: "-50%" }}
             animate={isInView ? { scale: 1, opacity: 1, rotate: 0, x: "-50%", y: "-50%" } : {}}
             transition={{ duration: 0.8, delay: 1, type: "spring", bounce: 0.6 }}
-            className="absolute left-1/2 top-1/2 z-30 w-16 h-16 rounded-full hidden lg:flex items-center justify-center"
+            className="absolute left-1/2 top-1/2 z-30 w-24 h-24 rounded-full hidden lg:flex items-center justify-center"
             style={{
               background: "linear-gradient(135deg, hsl(48 99% 55%) 0%, hsl(42 99% 48%) 100%)",
               boxShadow: "0 10px 20px -5px rgba(220, 160, 0, 0.6), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.2)",
@@ -252,7 +252,7 @@ const ComparativoSection = () => {
             }}
           >
             <span
-              className="font-mont font-black text-xl italic tracking-tighter"
+              className="font-mont font-black text-3xl italic tracking-tighter"
               style={{ color: "white", textShadow: "0 2px 5px rgba(0,0,0,0.2)" }}
             >
               VS
@@ -262,14 +262,14 @@ const ComparativoSection = () => {
           {/* VS Badge Mobile */}
           <div className="flex justify-center my-4 lg:hidden relative z-20">
             <div
-              className="w-20 h-20 rounded-full flex items-center justify-center"
+              className="w-24 h-24 rounded-full flex items-center justify-center"
               style={{
                 background: "linear-gradient(135deg, hsl(48 99% 55%) 0%, hsl(42 99% 48%) 100%)",
                 boxShadow: "0 15px 30px -5px rgba(220, 160, 0, 0.5), inset 0 2px 4px rgba(255,255,255,0.4)",
                 border: "4px solid hsl(75 25% 96%)",
               }}
             >
-              <span className="font-mont font-black text-2xl italic tracking-tighter text-white drop-shadow-md">VS</span>
+              <span className="font-mont font-black text-3xl italic tracking-tighter text-white drop-shadow-md">VS</span>
             </div>
           </div>
 

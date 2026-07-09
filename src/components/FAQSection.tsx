@@ -121,13 +121,26 @@ const FAQSection = () => {
         }} />
 
         {/* Dynamic Background Logo */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-center items-center" style={{ zIndex: 0 }}>
-          <motion.img
-            src="/logo-bg.svg"
-            alt=""
-            style={{ y: yParallax }}
-            className="w-[300vw] min-w-[2800px] translate-x-[15%] object-contain opacity-[0.12] blur-[5px] select-none"
-          />
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+          <motion.div
+            style={{ 
+              y: yParallax, 
+              position: 'absolute',
+              top: '50%',
+              left: '65%', // shifted right
+              width: '2800px',
+              height: '2800px',
+              marginLeft: '-1400px', // center horizontally based on new width
+              marginTop: '-1400px',  // center vertically
+            }}
+            className="opacity-[0.12] blur-[5px] select-none"
+          >
+            <img
+              src="/logo-bg.svg"
+              alt=""
+              className="w-full h-full object-contain"
+            />
+          </motion.div>
         </div>
 
         <div className="relative z-10 max-w-[720px] mx-auto">

@@ -24,8 +24,8 @@ const Navbar = () => {
         pastHero ? "pt-3 md:pt-4" : "pt-6 md:pt-8"
       }`}
       style={{
-        animationDelay: "5.8s",
-        "--hero-sweep-delay": "5.8s",
+        animationDelay: "3.0s",
+        "--hero-sweep-delay": "3.0s",
         "--hero-sweep-duration": "6s",
       } as CSSProperties}
     >

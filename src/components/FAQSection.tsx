@@ -216,12 +216,12 @@ const FAQSection = () => {
               }}
             />
 
-            {/* White Logo Background inside CTA */}
+            {/* New Green Symbol Logo Background inside CTA */}
             <div className="absolute inset-0 pointer-events-none flex justify-center items-center overflow-hidden mix-blend-overlay">
               <img 
-                src="/logo-branca.svg" 
+                src="/logo-simbolo-verde.svg" 
                 alt="" 
-                className="w-[120%] min-w-[600px] object-contain opacity-[0.25] blur-[4px] select-none translate-y-[15%] translate-x-[10%]" 
+                className="w-[150%] min-w-[1400px] max-w-none object-contain opacity-[0.25] blur-[4px] select-none translate-y-[10%]" 
               />
             </div>
 

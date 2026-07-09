@@ -8,7 +8,6 @@ import NumerosSection from "@/components/NumerosSection";
 import QuemSomosSection from "@/components/QuemSomosSection";
 import FAQSection from "@/components/FAQSection";
 import IndicacaoSection from "@/components/IndicacaoSection";
-import ContatoSection from "@/components/ContatoSection";
 import FooterSection from "@/components/FooterSection";
 
 const Index = () => {
@@ -24,7 +23,6 @@ const Index = () => {
         <ComparativoSection />
         <IndicacaoSection />
         <FAQSection />
-      <ContatoSection />
       <FooterSection />
     </div>
   );

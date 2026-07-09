@@ -103,8 +103,7 @@ const FAQSection = () => {
     restDelta: 0.001
   });
 
-  const x1 = useTransform(smoothProgress, [0, 1], ["-8%", "2%"]);
-  const x2 = useTransform(smoothProgress, [0, 1], ["2%", "-8%"]);
+  const yParallax = useTransform(smoothProgress, [0, 1], ["15%", "-15%"]);
 
   return (
     <>
@@ -121,24 +120,14 @@ const FAQSection = () => {
           background: "radial-gradient(ellipse at 90% 10%, hsl(72 65% 45% / 0.08) 0%, transparent 50%)"
         }} />
 
-        {/* Dynamic Background Marquees */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden flex flex-col justify-center items-center gap-1 md:gap-2" style={{ zIndex: 0 }}>
-          <motion.div
-            style={{ x: x1 }}
-            className="whitespace-nowrap font-mont font-black select-none opacity-50 blur-[5px]"
-          >
-            <span style={{ fontSize: "clamp(12rem, 18vw, 22rem)", color: "transparent", WebkitTextStroke: "4px hsl(48 95% 55%)", letterSpacing: "-0.01em" }}>
-              SUNDEAL ECONOMIA SUNDEAL ECONOMIA SUNDEAL ECONOMIA SUNDEAL ECONOMIA SUNDEAL ECONOMIA
-            </span>
-          </motion.div>
-          <motion.div
-            style={{ x: x2 }}
-            className="whitespace-nowrap font-mont font-black select-none opacity-50 blur-[5px]"
-          >
-            <span style={{ fontSize: "clamp(12rem, 18vw, 22rem)", color: "transparent", WebkitTextStroke: "4px hsl(48 95% 55%)", letterSpacing: "-0.01em" }}>
-              ENERGIA DESCONTO ENERGIA DESCONTO ENERGIA DESCONTO ENERGIA DESCONTO ENERGIA DESCONTO
-            </span>
-          </motion.div>
+        {/* Dynamic Background Logo */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-center items-center" style={{ zIndex: 0 }}>
+          <motion.img
+            src="/favicon.png"
+            alt=""
+            style={{ y: yParallax }}
+            className="w-[80vw] max-w-[800px] object-contain opacity-10 blur-[6px] select-none"
+          />
         </div>
 
         <div className="relative z-10 max-w-[720px] mx-auto">

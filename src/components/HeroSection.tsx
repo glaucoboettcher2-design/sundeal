@@ -27,7 +27,7 @@ export const HeroSection = () => {
           video.pause();
         }
       });
-    }, 2000);
+    }, 3200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -37,7 +37,7 @@ export const HeroSection = () => {
       opacity: 1,
       x: 0,
       filter: "blur(0px)",
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
@@ -46,15 +46,15 @@ export const HeroSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.25,
-        delayChildren: 0.8,
+        staggerChildren: 0.35,
+        delayChildren: 1.0,
       },
     },
   };
 
   const listItemVariants = {
     hidden: { opacity: 0, x: 40, filter: "blur(10px)" },
-    visible: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+    visible: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
   };
 
   return (
@@ -172,7 +172,7 @@ export const HeroSection = () => {
                 {/* Mobile video — placed right after the first subtitle */}
                 <div
                   className="block md:hidden w-full max-w-[260px] mx-auto mt-12 mb-8 animate-heroContent relative"
-                  style={{ animationDelay: "1.8s" }}
+                  style={{ animationDelay: "2.5s" }}
                 >
                   <div
                     className="relative rounded-2xl overflow-hidden"
@@ -209,7 +209,7 @@ export const HeroSection = () => {
 
                 <p
                   className="animate-heroContent font-montserrat font-normal text-[0.92rem] md:text-[1rem] lg:text-[1.05rem] leading-relaxed max-w-[620px] lg:max-w-none mt-6 md:mt-8 lg:mt-14"
-                  style={{ animationDelay: "1.8s", color: "hsl(0 0% 98%)", filter: "drop-shadow(0 4px 4px rgba(0,0,0,0.4)) drop-shadow(0 2px 2px rgba(0,0,0,0.28))" }}
+                  style={{ animationDelay: "2.5s", color: "hsl(0 0% 98%)", filter: "drop-shadow(0 4px 4px rgba(0,0,0,0.4)) drop-shadow(0 2px 2px rgba(0,0,0,0.28))" }}
                 >
                   Sua empresa já paga energia todo mês. Agora, com a Sundeal, paga
                   menos — sem mudar nada na sua rotina.
@@ -221,7 +221,7 @@ export const HeroSection = () => {
             {/* Buttons */}
             <div
               className="flex flex-wrap justify-center md:justify-start gap-4 mt-12 md:mt-10 lg:mt-14 animate-heroContent"
-              style={{ animationDelay: "1.8s", filter: "drop-shadow(0 6px 5px rgba(0,0,0,0.42)) drop-shadow(0 2px 2px rgba(0,0,0,0.3))" }}
+              style={{ animationDelay: "2.5s", filter: "drop-shadow(0 6px 5px rgba(0,0,0,0.42)) drop-shadow(0 2px 2px rgba(0,0,0,0.3))" }}
             >
               <a
                 href="#como-funciona"
@@ -233,7 +233,7 @@ export const HeroSection = () => {
 
             <p
               className="text-on-dark-soft text-xs mt-4 animate-heroContent"
-              style={{ animationDelay: "1.8s" }}
+              style={{ animationDelay: "2.5s" }}
             >
               Sem compromisso · Análise gratuita · 100% digital
             </p>
@@ -242,7 +242,7 @@ export const HeroSection = () => {
           {/* Right: Promo video — visible on tablet & desktop, hidden on mobile */}
           <div
             className="flex-shrink-0 w-full max-w-[320px] lg:max-w-[380px] xl:max-w-[420px] animate-heroContent hidden md:block relative"
-            style={{ animationDelay: "1.8s" }}
+            style={{ animationDelay: "2.5s" }}
           >
             <div
               className="relative rounded-2xl overflow-hidden"

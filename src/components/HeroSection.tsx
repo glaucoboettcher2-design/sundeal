@@ -116,7 +116,7 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-                className="h-[2px] w-full max-w-[85%] md:max-w-[90%] mt-8 self-center origin-center"
+                className="h-[2px] w-full max-w-[85%] md:max-w-[90%] mt-8 self-center md:self-start origin-center md:origin-left"
                 style={{
                   background: "linear-gradient(90deg, transparent 0%, hsl(48 99% 55%) 50%, transparent 100%)",
                   borderRadius: "50%",

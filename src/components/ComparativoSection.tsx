@@ -152,7 +152,8 @@ const ComparativoSection = () => {
             style={{
               background: "linear-gradient(160deg, #F5B000 0%, #D48C00 100%)",
               boxShadow: "0 40px 80px -20px rgba(200, 100, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.4)",
-              border: "1px solid rgba(255, 255, 255, 0.3)"
+              border: "1px solid rgba(255, 255, 255, 0.3)",
+              filter: "saturate(0.85)"
             }}
           >
             {/* Background Image Texture com Overlay (Fade out no topo) */}

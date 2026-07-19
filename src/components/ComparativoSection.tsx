@@ -143,39 +143,55 @@ const ComparativoSection = () => {
         {/* Cards Container */}
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
           
-          {/* Card Esquerdo: Tradicional (Desaturado, Claro) */}
+          {/* Card Esquerdo: Tradicional (Amarelo) */}
           <motion.div
             initial={{ opacity: 0, x: -40, rotateY: 10 }}
             animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="flex-1 flex flex-col rounded-[2rem] overflow-hidden relative"
+            className="flex-1 flex flex-col rounded-[2rem] overflow-hidden relative shadow-2xl"
             style={{
-              background: "linear-gradient(160deg, hsl(0 0% 92%) 0%, hsl(0 0% 82%) 100%)",
-              border: "1px solid hsl(0 0% 100%)",
-              boxShadow: "0 30px 60px -20px rgba(0,0,0,0.1)",
+              background: "linear-gradient(160deg, hsl(48 99% 55%) 0%, hsl(42 99% 45%) 100%)",
+              boxShadow: "0 40px 80px -20px hsl(48 60% 15% / 0.4), inset 0 1px 0 rgba(255,255,255,0.4)",
+              border: "1px solid hsl(48 60% 60%)"
             }}
           >
+            {/* Background Image Texture com Overlay */}
+            <div
+              className="absolute inset-0 z-0 opacity-15 mix-blend-overlay pointer-events-none"
+              style={{
+                backgroundImage: `url(${solarPanelsBg})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+            
+            {/* Decorative Glow inside Tradicional Card */}
+            <div
+              className="absolute top-0 left-0 w-64 h-64 rounded-full pointer-events-none opacity-40 blur-3xl"
+              style={{ background: "radial-gradient(circle, hsl(48 100% 75%) 0%, transparent 70%)" }}
+            />
+
             {/* Header Tradicional */}
-            <div className="px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
+            <div className="relative px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
               <div
                 className="w-28 h-28 flex items-center justify-center mb-6 relative"
               >
-                <img src={houseIcon} alt="Tradicional" className="w-full h-full object-contain mix-blend-multiply" />
+                <img src={houseIcon} alt="Tradicional" className="w-full h-full object-contain mix-blend-multiply drop-shadow-xl" />
               </div>
               <h3
                 className="font-mont font-extrabold text-[1.8rem] leading-tight mb-4"
-                style={{ color: "hsl(0 0% 15%)" }}
+                style={{ color: "hsl(48 90% 10%)" }}
               >
                 Instalação
                 <br />
-                <span style={{ color: "hsl(0 80% 50%)" }}>Tradicional</span>
+                <span style={{ color: "hsl(48 90% 25%)" }}>Tradicional</span>
               </h3>
               
               <div className="flex items-center gap-3 mt-2">
                 <div className="h-[1px] w-6" style={{ background: "rgba(0,0,0,0.15)" }} />
                 <span
                   className="text-[0.75rem] font-bold tracking-[0.1em] uppercase"
-                  style={{ color: "rgba(0,0,0,0.5)" }}
+                  style={{ color: "rgba(0,0,0,0.6)" }}
                 >
                   Mais etapas. Mais tempo. Mais investimento.
                 </span>
@@ -183,24 +199,24 @@ const ComparativoSection = () => {
               </div>
             </div>
 
-            <div className="px-8 md:px-12 pb-12 flex-1 flex flex-col justify-center">
+            <div className="relative px-8 md:px-12 pb-12 flex-1 flex flex-col justify-center z-10">
               <div className="grid grid-cols-1 md:grid-flow-col md:grid-rows-4 gap-x-4 gap-y-6 relative">
                 {traditionalSteps.map((step, idx) => (
                   <div key={idx} className="flex items-center gap-5 relative z-10">
                     <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-white"
+                      className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-white/40 backdrop-blur-md"
                       style={{
-                        boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                        border: "1px solid rgba(0,0,0,0.05)"
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+                        border: "1px solid rgba(255,255,255,0.6)"
                       }}
                     >
-                      <img src={step.image} alt={step.label} className="w-full h-full object-cover" />
+                      <img src={step.image} alt={step.label} className="w-full h-full object-cover mix-blend-multiply opacity-80" />
                     </div>
                     <span
                       className="text-[0.95rem] font-semibold leading-tight"
-                      style={{ color: "hsl(0 0% 25%)" }}
+                      style={{ color: "hsl(48 90% 15%)" }}
                     >
-                      <span className="mr-2" style={{ color: "rgba(0,0,0,0.3)" }}>{idx + 1}.</span>
+                      <span className="mr-2 font-bold" style={{ color: "rgba(0,0,0,0.4)" }}>{idx + 1}.</span>
                       {step.label}
                     </span>
                   </div>
@@ -210,11 +226,11 @@ const ComparativoSection = () => {
 
             {/* Footer Tradicional */}
             <div
-              className="p-6 flex flex-col sm:flex-row items-center justify-center gap-3 border-t"
+              className="relative p-6 flex flex-col sm:flex-row items-center justify-center gap-3 z-10 backdrop-blur-md"
               style={{
-                background: "rgba(0,0,0,0.04)",
-                borderColor: "rgba(0,0,0,0.08)",
-                color: "hsl(0 0% 35%)",
+                background: "rgba(0,0,0,0.05)",
+                borderTop: "1px solid rgba(0,0,0,0.08)",
+                color: "hsl(48 90% 20%)",
               }}
             >
               <Clock className="w-5 h-5 opacity-70" strokeWidth={2} />

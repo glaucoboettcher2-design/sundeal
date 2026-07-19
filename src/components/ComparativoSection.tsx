@@ -150,7 +150,7 @@ const ComparativoSection = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex-1 flex flex-col rounded-[2rem] overflow-hidden relative shadow-2xl"
             style={{
-              background: "linear-gradient(160deg, hsl(48 99% 55%) 0%, hsl(42 99% 45%) 100%)",
+              background: "linear-gradient(160deg, hsl(50 99% 65%) 0%, hsl(42 99% 45%) 100%)",
               boxShadow: "0 40px 80px -20px hsl(48 60% 15% / 0.4), inset 0 1px 0 rgba(255,255,255,0.4)",
               border: "1px solid hsl(48 60% 60%)"
             }}
@@ -167,8 +167,8 @@ const ComparativoSection = () => {
             
             {/* Decorative Glow inside Tradicional Card */}
             <div
-              className="absolute top-0 left-0 w-64 h-64 rounded-full pointer-events-none opacity-40 blur-3xl"
-              style={{ background: "radial-gradient(circle, hsl(48 100% 75%) 0%, transparent 70%)" }}
+              className="absolute top-0 left-0 w-64 h-64 rounded-full pointer-events-none opacity-60 blur-3xl"
+              style={{ background: "radial-gradient(circle, hsl(55 100% 85%) 0%, transparent 70%)" }}
             />
 
             {/* Header Tradicional */}
@@ -176,7 +176,7 @@ const ComparativoSection = () => {
               <div
                 className="w-28 h-28 flex items-center justify-center mb-6 relative"
               >
-                <img src={houseIcon} alt="Tradicional" className="w-full h-full object-contain mix-blend-multiply drop-shadow-xl" />
+                <img src={houseIcon} alt="Tradicional" className="w-full h-full object-contain mix-blend-multiply" />
               </div>
               <h3
                 className="font-mont font-extrabold text-[1.8rem] leading-tight mb-4"

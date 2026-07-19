@@ -165,24 +165,14 @@ const BeneficiosSection = () => {
                 </div>
 
                 {/* Right Image Area */}
-                <div className="relative w-full md:w-[45%] lg:w-[50%] h-64 md:h-auto shrink-0 order-1 md:order-2">
+                <div 
+                  className="relative w-full md:w-[45%] lg:w-[50%] h-64 md:h-auto shrink-0 order-1 md:order-2 [-webkit-mask-image:linear-gradient(to_bottom,black_50%,transparent_100%)] md:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_25%)] [mask-image:linear-gradient(to_bottom,black_50%,transparent_100%)] md:[mask-image:linear-gradient(to_right,transparent_0%,black_25%)]"
+                >
                   <img
                     src={card.image}
                     alt={card.imageAlt}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 group-hover:origin-right"
-                  />
-                  
-                  {/* Desktop Gradient Blend (Left to Right) */}
-                  <div 
-                    className="hidden md:block absolute inset-y-0 left-0 w-32 pointer-events-none"
-                    style={{ background: "linear-gradient(to right, hsl(72 73% 26%) 0%, transparent 100%)" }}
-                  />
-                  
-                  {/* Mobile Gradient Blend (Bottom to Top) */}
-                  <div 
-                    className="block md:hidden absolute inset-x-0 bottom-0 h-24 pointer-events-none"
-                    style={{ background: "linear-gradient(to top, hsl(72 73% 30%) 0%, transparent 100%)" }}
                   />
                 </div>
               </motion.article>

@@ -172,7 +172,7 @@ const ComparativoSection = () => {
             />
 
             {/* Header Tradicional */}
-            <div className="relative px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center z-10">
+            <div className="relative px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
               <div
                 className="w-32 h-32 flex items-center justify-center mb-4 relative"
               >

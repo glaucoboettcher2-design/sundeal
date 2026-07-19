@@ -287,7 +287,7 @@ const ComparativoSection = () => {
             />
 
             {/* Header Sundeal */}
-            <div className="relative z-10 px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
+            <div className="relative px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
               {/* Ícone 3D Sundeal */}
               <div
                 className="w-32 h-32 flex items-center justify-center mb-6 relative group"

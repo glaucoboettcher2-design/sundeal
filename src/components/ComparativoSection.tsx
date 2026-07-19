@@ -11,8 +11,8 @@ import {
   Calendar
 } from "lucide-react";
 
-import houseIcon from "@/assets/premium_3d_house_v3.png";
-import sundealIcon from "@/assets/premium_3d_sundeal_v3.png";
+import houseIcon from "@/assets/trad_icon_3d.png";
+import sundealIcon from "@/assets/sundeal_icon_3d.png";
 import solarPanelsBg from "@/assets/solar-panels-bg.jpg";
 import sundealStep1 from "@/assets/sundeal-step-1.png";
 import sundealStep2 from "@/assets/sundeal-step-2.png";
@@ -158,13 +158,9 @@ const ComparativoSection = () => {
             {/* Header Tradicional */}
             <div className="px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
               <div
-                className="w-20 h-20 rounded-full flex items-center justify-center mb-6 overflow-hidden bg-white"
-                style={{
-                  boxShadow: "0 10px 20px -5px rgba(0,0,0,0.1), inset 0 2px 4px rgba(0,0,0,0.05)",
-                  border: "1px solid rgba(0,0,0,0.05)"
-                }}
+                className="w-28 h-28 flex items-center justify-center mb-6 relative"
               >
-                <img src={houseIcon} alt="Tradicional" className="w-full h-full object-cover" />
+                <img src={houseIcon} alt="Tradicional" className="w-full h-full object-contain mix-blend-multiply" />
               </div>
               <h3
                 className="font-mont font-extrabold text-[1.8rem] leading-tight mb-4"
@@ -294,13 +290,9 @@ const ComparativoSection = () => {
             <div className="relative z-10 px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
               {/* Ícone 3D Sundeal */}
               <div
-                className="w-24 h-24 rounded-full flex items-center justify-center mb-6 relative group overflow-hidden bg-white"
-                style={{
-                  boxShadow: "0 20px 40px -10px rgba(220, 160, 0, 0.6), inset 0 4px 8px rgba(0,0,0,0.1)",
-                  border: "2px solid rgba(255,255,255,0.8)"
-                }}
+                className="w-32 h-32 flex items-center justify-center mb-6 relative group"
               >
-                <img src={sundealIcon} alt="Sundeal" className="w-[110%] h-[110%] object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
+                <img src={sundealIcon} alt="Sundeal" className="w-full h-full object-contain mix-blend-screen transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
               </div>
               <h3
                 className="font-mont font-extrabold text-[2rem] leading-tight mb-4"

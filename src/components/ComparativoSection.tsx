@@ -11,7 +11,7 @@ import {
   Calendar
 } from "lucide-react";
 
-import houseIcon from "@/assets/trad_icon_white.png";
+import houseIcon from "@/assets/trad_icon_transparent.png";
 import sundealIcon from "@/assets/sundeal_icon_3d.png";
 import solarPanelsBg from "@/assets/solar-panels-bg.jpg";
 import sundealStep1 from "@/assets/sundeal-step-1.png";
@@ -172,15 +172,14 @@ const ComparativoSection = () => {
             />
 
             {/* Header Tradicional */}
-            <div className="relative px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
+            <div className="relative px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center z-10">
               <div
                 className="w-32 h-32 flex items-center justify-center mb-4 relative"
               >
                 <img 
                   src={houseIcon} 
                   alt="Tradicional" 
-                  className="w-full h-full object-contain mix-blend-multiply"
-                  style={{ filter: "contrast(1.3) saturate(1.2)" }}
+                  className="w-full h-full object-contain drop-shadow-2xl"
                 />
               </div>
               <h3

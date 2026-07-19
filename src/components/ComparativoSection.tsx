@@ -150,23 +150,30 @@ const ComparativoSection = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex-1 flex flex-col rounded-[2rem] overflow-hidden relative shadow-2xl"
             style={{
-              background: "linear-gradient(160deg, #F5B000 0%, #D48C00 100%)",
               boxShadow: "0 40px 80px -20px rgba(200, 100, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.4)",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
-              filter: "brightness(1.15) saturate(0.65)"
+              border: "1px solid rgba(255, 255, 255, 0.3)"
             }}
           >
-            {/* Background Image Texture com Overlay (Fade out no topo) */}
+            {/* Fundo Base com Filtro Isolado */}
             <div
-              className="absolute inset-0 z-0 opacity-15 mix-blend-overlay pointer-events-none"
+              className="absolute inset-0 z-0"
               style={{
-                backgroundImage: `url(${solarPanelsBg})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                WebkitMaskImage: "linear-gradient(to bottom, transparent 25%, black 45%)",
-                maskImage: "linear-gradient(to bottom, transparent 25%, black 45%)"
+                background: "linear-gradient(160deg, #F5B000 0%, #D48C00 100%)",
+                filter: "brightness(1.15) saturate(0.65)"
               }}
-            />
+            >
+              {/* Background Image Texture com Overlay (Fade out no topo) */}
+              <div
+                className="absolute inset-0 z-0 opacity-15 mix-blend-overlay pointer-events-none"
+                style={{
+                  backgroundImage: `url(${solarPanelsBg})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  WebkitMaskImage: "linear-gradient(to bottom, transparent 25%, black 45%)",
+                  maskImage: "linear-gradient(to bottom, transparent 25%, black 45%)"
+                }}
+              />
+            </div>
 
             {/* Header Tradicional */}
             <div className="relative px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
@@ -179,7 +186,8 @@ const ComparativoSection = () => {
                   className="w-full h-full object-cover"
                   style={{
                     WebkitMaskImage: "radial-gradient(circle at center, black 50%, transparent 72%)",
-                    maskImage: "radial-gradient(circle at center, black 50%, transparent 72%)"
+                    maskImage: "radial-gradient(circle at center, black 50%, transparent 72%)",
+                    filter: "brightness(1.15) saturate(0.65)"
                   }}
                 />
               </div>
@@ -208,14 +216,8 @@ const ComparativoSection = () => {
               <div className="grid grid-cols-1 md:grid-flow-col md:grid-rows-4 gap-x-4 gap-y-6 relative">
                 {traditionalSteps.map((step, idx) => (
                   <div key={idx} className="flex items-center gap-5 relative z-10">
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-white/40 backdrop-blur-md"
-                      style={{
-                        boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-                        border: "1px solid rgba(255,255,255,0.6)"
-                      }}
-                    >
-                      <img src={step.image} alt={step.label} className="w-full h-full object-cover mix-blend-multiply opacity-80" />
+                    <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                      <img src={step.image} alt={step.label} className="w-full h-full object-contain mix-blend-multiply drop-shadow-sm" />
                     </div>
                     <span
                       className="text-[0.95rem] font-semibold leading-tight"

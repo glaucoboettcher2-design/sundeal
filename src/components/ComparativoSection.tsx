@@ -11,7 +11,7 @@ import {
   Calendar
 } from "lucide-react";
 
-import houseIcon from "@/assets/trad_icon_darkgold.png";
+import houseIcon from "@/assets/trad_icon_darkbronze.png";
 import sundealIcon from "@/assets/sundeal_icon_3d.png";
 import solarPanelsBg from "@/assets/solar-panels-bg.jpg";
 import sundealStep1 from "@/assets/sundeal-step-1.png";
@@ -143,32 +143,28 @@ const ComparativoSection = () => {
         {/* Cards Container */}
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
           
-          {/* Card Esquerdo: Tradicional (Ouro Escuro no Topo) */}
+          {/* Card Esquerdo: Tradicional (Ouro/Bronze Escuro) */}
           <motion.div
             initial={{ opacity: 0, x: -40, rotateY: 10 }}
             animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex-1 flex flex-col rounded-[2rem] overflow-hidden relative shadow-2xl"
             style={{
-              background: "linear-gradient(160deg, #C79F30 0%, #E6C153 100%)",
-              boxShadow: "0 40px 80px -20px rgba(180, 140, 50, 0.4), inset 0 1px 0 rgba(255,255,255,0.3)",
-              border: "1px solid rgba(255, 255, 255, 0.2)"
+              background: "linear-gradient(160deg, #8C6814 0%, #B38F1F 100%)",
+              boxShadow: "0 40px 80px -20px rgba(100, 70, 15, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.15)"
             }}
           >
-            {/* Background Image Texture com Overlay */}
+            {/* Background Image Texture com Overlay (Fade out at top to keep background pure #8C6814) */}
             <div
               className="absolute inset-0 z-0 opacity-15 mix-blend-overlay pointer-events-none"
               style={{
                 backgroundImage: `url(${solarPanelsBg})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                WebkitMaskImage: "linear-gradient(to bottom, transparent 25%, black 45%)",
+                maskImage: "linear-gradient(to bottom, transparent 25%, black 45%)"
               }}
-            />
-            
-            {/* Decorative Glow inside Tradicional Card */}
-            <div
-              className="absolute top-0 left-0 w-64 h-64 rounded-full pointer-events-none opacity-20 blur-3xl"
-              style={{ background: "radial-gradient(circle, rgba(255,230,150,0.5) 0%, transparent 70%)" }}
             />
 
             {/* Header Tradicional */}
@@ -180,30 +176,26 @@ const ComparativoSection = () => {
                   src={houseIcon} 
                   alt="Tradicional" 
                   className="w-full h-full object-cover"
-                  style={{
-                    WebkitMaskImage: "radial-gradient(circle at center, black 50%, transparent 72%)",
-                    maskImage: "radial-gradient(circle at center, black 50%, transparent 72%)"
-                  }}
                 />
               </div>
               <h3
                 className="font-mont font-extrabold text-[1.8rem] leading-tight mb-4"
-                style={{ color: "#3d2600" }}
+                style={{ color: "#ffffff" }}
               >
                 Instalação
                 <br />
-                <span style={{ color: "#221500" }}>Tradicional</span>
+                <span style={{ color: "rgba(255,255,255,0.8)" }}>Tradicional</span>
               </h3>
               
               <div className="flex items-center gap-3 mt-2">
-                <div className="h-[1px] w-6" style={{ background: "rgba(0,0,0,0.2)" }} />
+                <div className="h-[1px] w-6" style={{ background: "rgba(255,255,255,0.3)" }} />
                 <span
                   className="text-[0.75rem] font-bold tracking-[0.1em] uppercase"
-                  style={{ color: "#543500" }}
+                  style={{ color: "rgba(255,255,255,0.9)" }}
                 >
                   Mais etapas. Mais tempo. Mais investimento.
                 </span>
-                <div className="h-[1px] w-6" style={{ background: "rgba(0,0,0,0.2)" }} />
+                <div className="h-[1px] w-6" style={{ background: "rgba(255,255,255,0.3)" }} />
               </div>
             </div>
 
@@ -212,19 +204,19 @@ const ComparativoSection = () => {
                 {traditionalSteps.map((step, idx) => (
                   <div key={idx} className="flex items-center gap-5 relative z-10">
                     <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-white/40 backdrop-blur-md"
+                      className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-white/20 backdrop-blur-md"
                       style={{
-                        boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-                        border: "1px solid rgba(255,255,255,0.6)"
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                        border: "1px solid rgba(255,255,255,0.3)"
                       }}
                     >
-                      <img src={step.image} alt={step.label} className="w-full h-full object-cover mix-blend-multiply opacity-80" />
+                      <img src={step.image} alt={step.label} className="w-full h-full object-cover mix-blend-multiply opacity-70" />
                     </div>
                     <span
                       className="text-[0.95rem] font-semibold leading-tight"
-                      style={{ color: "#3d2600" }}
+                      style={{ color: "#ffffff" }}
                     >
-                      <span className="mr-2 font-bold" style={{ color: "rgba(0,0,0,0.5)" }}>{idx + 1}.</span>
+                      <span className="mr-2 font-bold" style={{ color: "rgba(255,255,255,0.5)" }}>{idx + 1}.</span>
                       {step.label}
                     </span>
                   </div>
@@ -236,9 +228,9 @@ const ComparativoSection = () => {
             <div
               className="relative p-6 flex flex-col sm:flex-row items-center justify-center gap-3 z-10 backdrop-blur-md"
               style={{
-                background: "rgba(0,0,0,0.08)",
-                borderTop: "1px solid rgba(0,0,0,0.15)",
-                color: "#4a2e00",
+                background: "rgba(0,0,0,0.15)",
+                borderTop: "1px solid rgba(255,255,255,0.1)",
+                color: "#ffffff",
               }}
             >
               <Clock className="w-5 h-5 opacity-70" strokeWidth={2} />

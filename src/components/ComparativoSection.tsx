@@ -11,7 +11,7 @@ import {
   Calendar
 } from "lucide-react";
 
-import houseIcon from "@/assets/trad_icon_amber.png";
+import houseIcon from "@/assets/trad_icon_sand.png";
 import sundealIcon from "@/assets/sundeal_icon_3d.png";
 import solarPanelsBg from "@/assets/solar-panels-bg.jpg";
 import sundealStep1 from "@/assets/sundeal-step-1.png";
@@ -143,16 +143,16 @@ const ComparativoSection = () => {
         {/* Cards Container */}
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
           
-          {/* Card Esquerdo: Tradicional (Amarelo Escuro/Amber) */}
+          {/* Card Esquerdo: Tradicional (Amarelo Desaturado/Cinza) */}
           <motion.div
             initial={{ opacity: 0, x: -40, rotateY: 10 }}
             animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex-1 flex flex-col rounded-[2rem] overflow-hidden relative shadow-2xl"
             style={{
-              background: "linear-gradient(160deg, #F5A623 0%, #D07B00 100%)",
-              boxShadow: "0 40px 80px -20px rgba(200, 100, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.4)",
-              border: "1px solid rgba(255, 255, 255, 0.3)"
+              background: "linear-gradient(160deg, #CBAA63 0%, #A68A4E 100%)",
+              boxShadow: "0 40px 80px -20px rgba(160, 130, 70, 0.4), inset 0 1px 0 rgba(255,255,255,0.3)",
+              border: "1px solid rgba(255, 255, 255, 0.2)"
             }}
           >
             {/* Background Image Texture com Overlay */}
@@ -167,8 +167,8 @@ const ComparativoSection = () => {
             
             {/* Decorative Glow inside Tradicional Card */}
             <div
-              className="absolute top-0 left-0 w-64 h-64 rounded-full pointer-events-none opacity-50 blur-3xl"
-              style={{ background: "radial-gradient(circle, rgba(255,230,100,0.8) 0%, transparent 70%)" }}
+              className="absolute top-0 left-0 w-64 h-64 rounded-full pointer-events-none opacity-40 blur-3xl"
+              style={{ background: "radial-gradient(circle, rgba(255,240,180,0.6) 0%, transparent 70%)" }}
             />
 
             {/* Header Tradicional */}

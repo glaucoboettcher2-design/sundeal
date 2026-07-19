@@ -1,38 +1,46 @@
 import { motion } from "framer-motion";
-import { Home, Building2, Check } from "lucide-react";
-import residenciasImg from "@/assets/beneficio-residencias.jpg";
-import empresasImg from "@/assets/beneficio-empresas.jpg";
+import { Home, Building2, Check, Calculator, CircleDollarSign, FileText, ShieldCheck, Zap } from "lucide-react";
+import residenciasImg from "@/assets/beneficio-residencias-new.png";
+import empresasImg from "@/assets/beneficio-empresas-new.png";
 import solarPanelsBg from "@/assets/solar-panels-bg.jpg";
 
 const cards = [
   {
     icon: Home,
-    title: "Para residências",
+    title1: "Para",
+    title2: "residências",
     image: residenciasImg,
-    imageAlt: "Família planejando economia de energia em casa",
-    buttonText: "Simular para minha casa",
+    imageAlt: "Família na sala de estar utilizando um tablet",
+    subtitle: "Mais economia para o seu dia a dia.",
+    buttonText: "Quero simular minha economia",
     benefits: [
-      "Sem taxa de adesão e sem fidelidade",
+      "Sem taxa de adesão",
       "Economia mensal na conta de luz",
-      "Sem necessidade de obras no seu imóvel.",
-      "Flexibilidade para readequar a demanda ao consumo.",
-      "Transfira sua assinatura em caso de mudança de endereço.",
+      "Sem necessidade de obras no seu imóvel",
+      "Flexibilidade para readequar a demanda",
     ],
   },
   {
     icon: Building2,
-    title: "Para empresas",
+    title1: "Para",
+    title2: "empresas",
     image: empresasImg,
-    imageAlt: "Empresário utilizando energia solar para o seu negócio",
-    buttonText: "Simular para minha empresa",
+    imageAlt: "Empresário utilizando notebook em um escritório",
+    subtitle: "Reduza custos e aumente a competitividade.",
+    buttonText: "Quero simular minha economia",
     benefits: [
       "Economia garantida para investir no seu negócio",
       "Redução nos custos operacionais",
       "Contrato simples, sem fidelidade e sem taxa de adesão",
-      "Sem necessidade de obras ou manutenção",
-      "Energia limpa e sustentável",
     ],
   },
+];
+
+const features = [
+  { icon: CircleDollarSign, text: "Até 20% de economia\nna sua conta de luz" },
+  { icon: FileText, text: "Processo 100% digital\ne sem burocracia" },
+  { icon: ShieldCheck, text: "Regulamentado\npela ANEEL" },
+  { icon: Zap, text: "Você continua com\na Energisa" },
 ];
 
 const BeneficiosSection = () => {
@@ -44,76 +52,56 @@ const BeneficiosSection = () => {
         background: "linear-gradient(180deg, #f6f7f2 0%, #eef0e6 100%)",
       }}
     >
-      <div className="relative z-10 max-w-[1180px] mx-auto px-[6vw]">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-[5vw] lg:px-8">
+        
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24, x: 20, filter: "blur(12px)" }}
-          whileInView={{ opacity: 1, y: 0, x: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 24, filter: "blur(12px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16 relative z-10"
         >
-          <span
-            className="block text-xs font-bold tracking-[0.18em] uppercase mb-3.5"
-            style={{ color: "hsl(72 60% 32%)" }}
-          >
-            Nossos Benefícios
-          </span>
-          <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.6 }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.14 } }
-            }}
-            className="font-mont font-bold leading-[1.15] mb-5"
+          <h2
+            className="font-mont font-bold leading-[1.15] mb-4"
             style={{
-              fontSize: "clamp(1.8rem, 3vw, 2.8rem)",
-              color: "hsl(73 67% 32%)",
+              fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
+              color: "hsl(73 67% 24%)",
             }}
           >
-            <motion.span variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block mr-[0.25em]">Por</motion.span>
-            <motion.span variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block mr-[0.25em]">que</motion.span>
-            <motion.span variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block mr-[0.25em]">escolher</motion.span>
-            <motion.span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block mr-[0.25em]">Energia</motion.span>
-            <motion.span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block mr-[0.25em]">Solar</motion.span>
-            <motion.span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block">Compartilhada?</motion.span>
-          </motion.h2>
+            Energia por assinatura para o que mais importa para você
+          </h2>
           <p
-            className="text-base md:text-lg max-w-[640px] mx-auto leading-relaxed"
-            style={{ color: "hsl(72 15% 30%)" }}
+            className="text-base md:text-[1.1rem] max-w-[700px] mx-auto leading-relaxed"
+            style={{ color: "hsl(72 15% 40%)" }}
           >
-            Conheça os benefícios e vantagens para a sua casa ou negócio com
-            conta de luz a partir de R$300/mês.
+            Economize todos os meses sem instalar placas, sem obras e sem investimento.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+        {/* Cards Side-by-Side */}
+        <div className="grid xl:grid-cols-2 gap-8 md:gap-10 mb-16">
           {cards.map((card, i) => {
             const Icon = card.icon;
             return (
               <motion.article
-                key={card.title}
-                initial={{ opacity: 0, y: 40, x: 20, filter: "blur(12px)" }}
-                whileInView={{ opacity: 1, y: 0, x: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, amount: 0.25 }}
+                key={card.title2}
+                initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
                   duration: 0.8,
-                  delay: 0.15 + i * 0.18,
+                  delay: 0.15 + i * 0.15,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="group relative rounded-3xl overflow-hidden flex flex-col"
+                className="group relative rounded-[2rem] overflow-hidden flex flex-col md:flex-row items-stretch shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
                 style={{
-                  background:
-                    "linear-gradient(180deg, hsl(72 73% 32% / 0.92) 0%, hsl(72 73% 26% / 0.92) 100%)",
-                  boxShadow:
-                    "0 22px 50px -20px hsl(72 60% 6% / 0.65), inset 0 1px 0 hsl(0 0% 100% / 0.12)",
-                  border: "1px solid hsl(72 68% 65% / 0.28)",
+                  background: "linear-gradient(135deg, hsl(72 73% 30%) 0%, hsl(72 73% 22%) 100%)",
+                  border: "1px solid hsl(72 68% 65% / 0.2)",
                 }}
               >
-                {/* Background image overlay */}
+                {/* Texture Overlay */}
                 <div
-                  aria-hidden
                   className="absolute inset-0 z-0 opacity-15 mix-blend-overlay pointer-events-none"
                   style={{
                     backgroundImage: `url(${solarPanelsBg})`,
@@ -122,119 +110,121 @@ const BeneficiosSection = () => {
                   }}
                 />
 
-                {/* Decorative ambient glow — matches Numeros card */}
-                <div
-                  aria-hidden
-                  className="absolute -top-20 -right-16 w-64 h-64 rounded-full pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(circle, hsl(75 85% 65% / 0.35) 0%, transparent 70%)",
-                    filter: "blur(6px)",
-                  }}
-                />
+                {/* Left Content Area */}
+                <div className="relative z-10 w-full md:w-[55%] lg:w-[50%] p-8 md:p-10 flex flex-col justify-between order-2 md:order-1">
+                  <div>
+                    {/* Icon Header */}
+                    <div className="mb-6">
+                      <div 
+                        className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg"
+                        style={{
+                          background: "linear-gradient(135deg, #F5B000 0%, #D48C00 100%)",
+                        }}
+                      >
+                        <Icon className="w-6 h-6 text-[#1a1000]" strokeWidth={2.5} />
+                      </div>
+                    </div>
+                    
+                    {/* Title & Subtitle */}
+                    <h3 className="font-mont font-bold text-3xl md:text-4xl leading-tight mb-3 text-white">
+                      {card.title1} <span style={{ color: "#F5B000" }}>{card.title2}</span>
+                    </h3>
+                    <p className="text-white/90 text-[0.95rem] mb-6">
+                      {card.subtitle}
+                    </p>
 
-                <div className="relative h-[260px] md:h-[300px] overflow-hidden">
+                    <div className="w-12 h-[1px] bg-white/20 mb-6" />
+
+                    {/* Benefits List */}
+                    <ul className="flex flex-col gap-3.5 mb-8">
+                      {card.benefits.map((b) => (
+                        <li key={b} className="flex items-start gap-3 text-[0.9rem] leading-snug text-white/95">
+                          <div className="w-5 h-5 rounded-full bg-[#F5B000] flex items-center justify-center shrink-0 mt-0.5">
+                            <Check className="w-3.5 h-3.5 text-[#1a1000]" strokeWidth={3} />
+                          </div>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Button */}
+                  <a
+                    href="#contato"
+                    className="relative z-10 w-full inline-flex items-center justify-center gap-2 font-mont font-bold py-3.5 px-4 rounded-xl transition-all hover:brightness-110 hover:-translate-y-0.5 text-[0.9rem]"
+                    style={{
+                      background: "hsl(72 73% 40%)", // Lighter green for button
+                      color: "white",
+                      boxShadow: "0 8px 20px -6px rgba(0,0,0,0.3)",
+                      border: "1px solid rgba(255,255,255,0.15)"
+                    }}
+                  >
+                    <Calculator className="w-4 h-4" />
+                    {card.buttonText}
+                  </a>
+                </div>
+
+                {/* Right Image Area */}
+                <div className="relative w-full md:w-[45%] lg:w-[50%] h-64 md:h-auto shrink-0 order-1 md:order-2">
                   <img
                     src={card.image}
                     alt={card.imageAlt}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 group-hover:origin-right"
                   />
-                  {/* Image bottom fade into card */}
-                  <div
-                    aria-hidden
-                    className="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, transparent 0%, hsl(73 70% 22% / 0.55) 100%)",
-                    }}
+                  
+                  {/* Desktop Gradient Blend (Left to Right) */}
+                  <div 
+                    className="hidden md:block absolute inset-y-0 left-0 w-32 pointer-events-none"
+                    style={{ background: "linear-gradient(to right, hsl(72 73% 26%) 0%, transparent 100%)" }}
                   />
-                  <div
-                    className="absolute bottom-4 left-6 rounded-full flex items-center justify-center z-10 shrink-0"
-                    style={{
-                      width: "64px",
-                      height: "64px",
-                      aspectRatio: "1 / 1",
-                      background:
-                        "linear-gradient(135deg, hsl(48 99% 58%) 0%, hsl(42 99% 48%) 100%)",
-                      boxShadow:
-                        "0 12px 28px -6px hsl(40 90% 20% / 0.5), inset 0 1px 1px hsl(0 0% 100% / 0.4)",
-                      border: "1.5px solid hsl(0 0% 100% / 0.7)",
-                    }}
-                  >
-                    <Icon
-                      className="w-7 h-7"
-                      style={{ color: "hsl(73 75% 18%)" }}
-                      strokeWidth={2.4}
-                    />
-                  </div>
-                </div>
-
-                <div className="relative px-7 md:px-9 pt-12 pb-9 flex flex-col flex-1">
-                  <h3
-                    className="font-mont font-bold text-2xl md:text-[1.7rem] mb-6"
-                    style={{
-                      color: "hsl(0 0% 100%)",
-                      textShadow: "0 2px 14px hsl(72 70% 8% / 0.45)",
-                    }}
-                  >
-                    {card.title}
-                  </h3>
-
-                  <ul className="flex flex-col gap-3.5 mb-8 flex-1">
-                    {card.benefits.map((b) => (
-                      <li
-                        key={b}
-                        className="flex items-start gap-3 text-[0.98rem] leading-snug"
-                        style={{ color: "hsl(75 25% 92%)" }}
-                      >
-                        <Check
-                          className="w-5 h-5 flex-shrink-0 mt-0.5"
-                          style={{ color: "hsl(48 99% 60%)" }}
-                          strokeWidth={2.6}
-                        />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href="#contato"
-                    className="relative z-10 block w-full text-center font-mont font-bold py-4 rounded-xl transition-all hover:brightness-105 hover:-translate-y-0.5"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, hsl(48 99% 58%) 0%, hsl(42 99% 48%) 100%)",
-                      color: "hsl(73 75% 16%)",
-                      border: "1px solid hsl(45 100% 75% / 0.6)",
-                      boxShadow:
-                        "0 14px 32px -10px hsl(40 90% 25% / 0.55), inset 0 1px 1px hsl(0 0% 100% / 0.45)",
-                    }}
-                  >
-                    {card.buttonText}
-                  </a>
+                  
+                  {/* Mobile Gradient Blend (Bottom to Top) */}
+                  <div 
+                    className="block md:hidden absolute inset-x-0 bottom-0 h-24 pointer-events-none"
+                    style={{ background: "linear-gradient(to top, hsl(72 73% 30%) 0%, transparent 100%)" }}
+                  />
                 </div>
               </motion.article>
             );
           })}
         </div>
-      </div>
 
-      {/* Infinite line divider */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center pointer-events-none">
-        <div
-          className="w-full max-w-[900px] h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent 0%, hsl(72 55% 65% / 0.35) 20%, hsl(72 55% 65% / 0.35) 80%, transparent 100%)",
-          }}
-        />
+        {/* Feature Pills Footer */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
+          {features.map((feature, idx) => {
+            const Icon = feature.icon;
+            return (
+              <div 
+                key={idx}
+                className="flex items-center gap-4 bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-white/50 shadow-sm"
+              >
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+                  style={{ background: "hsl(72 73% 24%)" }}
+                >
+                  <Icon className="w-5 h-5 text-white" strokeWidth={2} />
+                </div>
+                <p 
+                  className="text-[0.85rem] font-semibold leading-tight whitespace-pre-line"
+                  style={{ color: "hsl(72 20% 20%)" }}
+                >
+                  {feature.text}
+                </p>
+              </div>
+            );
+          })}
+        </motion.div>
+
       </div>
     </section>
   );
 };
 
 export default BeneficiosSection;
-
-
-
-

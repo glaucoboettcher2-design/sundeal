@@ -11,7 +11,7 @@ import {
   Calendar
 } from "lucide-react";
 
-import houseIcon from "@/assets/trad_icon_transparent.png";
+import houseIcon from "@/assets/trad_icon_lightyellow.png";
 import sundealIcon from "@/assets/sundeal_icon_3d.png";
 import solarPanelsBg from "@/assets/solar-panels-bg.jpg";
 import sundealStep1 from "@/assets/sundeal-step-1.png";
@@ -155,31 +155,31 @@ const ComparativoSection = () => {
               border: "1px solid rgba(255, 255, 255, 0.3)"
             }}
           >
-            {/* Background Image Texture com Overlay */}
+            {/* Background Image Texture com Overlay (Fade out no topo) */}
             <div
               className="absolute inset-0 z-0 opacity-15 mix-blend-overlay pointer-events-none"
               style={{
                 backgroundImage: `url(${solarPanelsBg})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                WebkitMaskImage: "linear-gradient(to bottom, transparent 25%, black 45%)",
+                maskImage: "linear-gradient(to bottom, transparent 25%, black 45%)"
               }}
             />
 
-            {/* Decorative Glow inside Tradicional Card */}
-            <div
-              className="absolute top-0 left-0 w-64 h-64 rounded-full pointer-events-none opacity-50 blur-3xl"
-              style={{ background: "radial-gradient(circle, rgba(255,240,150,0.8) 0%, transparent 70%)" }}
-            />
-
             {/* Header Tradicional */}
-            <div className="relative px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center z-10">
+            <div className="relative px-8 md:px-12 pt-12 pb-8 flex flex-col items-center text-center">
               <div
                 className="w-32 h-32 flex items-center justify-center mb-4 relative"
               >
                 <img 
                   src={houseIcon} 
                   alt="Tradicional" 
-                  className="w-full h-full object-contain drop-shadow-2xl"
+                  className="w-full h-full object-cover"
+                  style={{
+                    WebkitMaskImage: "radial-gradient(circle at center, black 50%, transparent 72%)",
+                    maskImage: "radial-gradient(circle at center, black 50%, transparent 72%)"
+                  }}
                 />
               </div>
               <h3

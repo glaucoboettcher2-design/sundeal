@@ -133,7 +133,7 @@ const BeneficiosSection = () => {
                       {card.subtitle}
                     </p>
 
-                    <div className="w-12 h-[1px] bg-white/20 mb-6" />
+                    <div className="w-12 h-[1px] bg-white/50 mb-6" />
 
                     {/* Benefits List */}
                     <ul className="flex flex-col gap-3.5 mb-8">

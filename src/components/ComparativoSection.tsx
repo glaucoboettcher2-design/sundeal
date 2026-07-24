@@ -185,8 +185,8 @@ const ComparativoSection = () => {
                   alt="Tradicional" 
                   className="w-full h-full object-cover"
                   style={{
-                    WebkitMaskImage: "radial-gradient(circle at center, black 50%, transparent 72%)",
-                    maskImage: "radial-gradient(circle at center, black 50%, transparent 72%)",
+                    WebkitMaskImage: "radial-gradient(circle at center, black 35%, transparent 60%)",
+                    maskImage: "radial-gradient(circle at center, black 35%, transparent 60%)",
                     filter: "brightness(1.15) saturate(0.65)"
                   }}
                 />

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import sundealLogo from "@/assets/sundeal-logo.png";
 
 const LoadingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +20,7 @@ const LoadingScreen = () => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#f6f7f2]"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-b from-[hsl(72,73%,32%)] to-[hsl(72,73%,24%)]"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -34,7 +33,7 @@ const LoadingScreen = () => {
           >
             {/* Logo Image */}
             <motion.img
-              src={sundealLogo}
+              src="/logo-branca.svg"
               alt="Sundeal Logo"
               className="w-48 md:w-64 mb-10 drop-shadow-xl"
               animate={{ 

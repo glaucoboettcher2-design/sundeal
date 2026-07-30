@@ -9,10 +9,12 @@ import QuemSomosSection from "@/components/QuemSomosSection";
 import FAQSection from "@/components/FAQSection";
 import IndicacaoSection from "@/components/IndicacaoSection";
 import FooterSection from "@/components/FooterSection";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <LoadingScreen />
       <Navbar />
       <HeroSection />
       <ComoFunciona />

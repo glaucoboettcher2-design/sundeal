@@ -211,16 +211,14 @@ const FAQSection = () => {
               {/* Right column solid background */}
               <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF3]"></div>
               
-              {/* Concentric Circles Container - CENTERED on the right column */}
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-[45%] h-full flex items-center justify-center overflow-visible">
-                 <div className="relative w-full h-full flex items-center justify-center">
-                   {/* Circle 1 (Outer - Thick ring) */}
-                   <div className="absolute rounded-full bg-[#FFF8D6] aspect-square" style={{ width: '150%' }}></div>
-                   {/* Circle 2 (Middle - Thick ring) */}
-                   <div className="absolute rounded-full bg-[#FCEB92] aspect-square" style={{ width: '100%' }}></div>
-                   {/* Circle 3 (Inner - Solid dot) */}
-                   <div className="absolute rounded-full bg-[#FCD53D] aspect-square" style={{ width: '50%' }}></div>
-                 </div>
+              {/* Concentric Circles Container - ORIGINATING FROM FAR RIGHT EDGE */}
+              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] pointer-events-none">
+                   {/* Circle 1 (Outer - Thin ring bleeding deep into form) */}
+                   <div className="absolute top-1/2 right-0 translate-x-[40%] md:translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFF8D6] aspect-square" style={{ width: '280%' }}></div>
+                   {/* Circle 2 (Middle - Thin ring) */}
+                   <div className="absolute top-1/2 right-0 translate-x-[40%] md:translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FCEB92] aspect-square" style={{ width: '240%' }}></div>
+                   {/* Circle 3 (Inner - Massive circle, left edge touches form boundary) */}
+                   <div className="absolute top-1/2 right-0 translate-x-[40%] md:translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FCD53D] aspect-square" style={{ width: '200%' }}></div>
               </div>
             </div>
 
@@ -271,8 +269,8 @@ const FAQSection = () => {
 
               {/* Right Column (Image) */}
               <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center pointer-events-none">
-                {/* Icon Container - Positioned on the left edge of the inner circle */}
-                <div className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 w-[45%] max-w-[240px] pointer-events-auto">
+                {/* Icon Container - Centered exactly on the boundary between left and right columns! */}
+                <div className="absolute top-1/2 left-1/2 md:left-0 -translate-x-1/2 -translate-y-1/2 w-[55%] md:w-[45%] max-w-[240px] pointer-events-auto">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}

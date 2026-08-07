@@ -209,17 +209,17 @@ const FAQSection = () => {
             {/* Unified Background Layer (Decoupled for perfect bleeding) */}
             <div className="absolute inset-0 z-0 pointer-events-none">
               {/* Right column solid background */}
-              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FCF8E3]"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF2]"></div>
               
-              {/* Concentric Circles Container - Offset to the left to match reference exactly! */}
+              {/* Concentric Circles Container - CENTERED on the right column */}
               <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-[45%] h-full flex items-center justify-center">
-                 <div className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
                    {/* Circle 1 (Outer - Huge bleed into left column) */}
-                   <div className="absolute rounded-full bg-[#FDF1B8]" style={{ width: '160%', paddingBottom: '160%' }}></div>
+                   <div className="absolute rounded-full bg-[#FFF6D4]" style={{ width: '135%', paddingBottom: '135%' }}></div>
                    {/* Circle 2 (Middle) */}
-                   <div className="absolute rounded-full bg-[#FCE47A]" style={{ width: '110%', paddingBottom: '110%' }}></div>
+                   <div className="absolute rounded-full bg-[#FCE580]" style={{ width: '90%', paddingBottom: '90%' }}></div>
                    {/* Circle 3 (Inner - Strong yellow) */}
-                   <div className="absolute rounded-full bg-[#FCD239]" style={{ width: '65%', paddingBottom: '65%' }}></div>
+                   <div className="absolute rounded-full bg-[#FCD135]" style={{ width: '45%', paddingBottom: '45%' }}></div>
                  </div>
               </div>
             </div>
@@ -270,15 +270,15 @@ const FAQSection = () => {
               </div>
 
               {/* Right Column (Image) */}
-              <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center">
-                {/* Icon Container - Offset to match circles exactly */}
-                <div className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
+              <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center pointer-events-none">
+                {/* Icon Container - OFFSET TO THE LEFT edge of the right column! */}
+                <div className="absolute top-1/2 left-[15%] -translate-x-1/2 -translate-y-1/2 w-[85%] max-w-[340px] pointer-events-auto">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-                    className="relative z-20 w-[70%] max-w-[300px]"
+                    className="relative z-20 w-full"
                   >
                     <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)]" />
                   </motion.div>

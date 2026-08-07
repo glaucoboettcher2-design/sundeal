@@ -121,7 +121,7 @@ const FAQSection = () => {
     restDelta: 0.001
   });
 
-  const yParallax = useTransform(smoothProgress, [0, 1], ["4%", "-4%"]);
+  const yParallax = useTransform(smoothProgress, [0, 1], ["12%", "-12%"]);
 
   return (
     <>

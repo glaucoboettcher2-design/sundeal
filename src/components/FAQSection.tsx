@@ -204,71 +204,80 @@ const FAQSection = () => {
         {/* New Registration Form CTA */}
         <div className="relative z-10 max-w-[1180px] mx-auto mt-20">
           <div
-            className="reveal-item opacity-0 translate-y-8 translate-x-8 blur-md transition-all duration-700 relative overflow-hidden rounded-[36px] bg-white flex flex-col md:flex-row items-stretch shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+            className="reveal-item opacity-0 translate-y-8 translate-x-8 blur-md transition-all duration-700 relative overflow-hidden rounded-[36px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)] min-h-[500px]"
           >
-            {/* Left Column (Form) */}
-            <div className="w-full md:w-[55%] p-8 md:p-12 text-left flex flex-col justify-center bg-white relative z-20">
-              <h2 className="font-mont font-extrabold text-[1.8rem] md:text-[2.2rem] leading-[1.1] mb-3 text-[#79941E]">
-                Cadastre-se para<br /> economizar ou investir!
-              </h2>
-              <p className="text-[#888888] font-medium text-[0.95rem] md:text-[1rem] mb-8 max-w-[90%]">
-                Deixe suas informações abaixo que a Sundeal vai entrar<br className="hidden md:block" /> em contato com você!
-              </p>
+            {/* Unified Background Layer (Solves the clipping issue) */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              {/* Right column solid background */}
+              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF0]"></div>
               
-              <form className="flex flex-col gap-5 w-full max-w-[500px]">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Nome:</label>
-                  <input type="text" placeholder="Seu nome completo" className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
-                </div>
+              {/* Concentric Circles centered precisely on the right column */}
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-[45%] h-full flex items-center justify-center">
+                {/* Outer Circle (bleeds into the left column naturally) */}
+                <div className="absolute rounded-full bg-[#FFF5CF]" style={{ width: '135%', paddingBottom: '135%' }}></div>
+                {/* Inner Circle */}
+                <div className="absolute rounded-full bg-[#FCE679]" style={{ width: '85%', paddingBottom: '85%' }}></div>
+              </div>
+            </div>
+
+            {/* Content Layer */}
+            <div className="relative z-10 flex flex-col md:flex-row items-stretch h-full">
+              {/* Left Column (Form) */}
+              <div className="w-full md:w-[55%] p-10 md:p-12 lg:p-16 text-left flex flex-col justify-center">
+                <h2 className="font-mont font-extrabold text-[1.8rem] md:text-[2.2rem] leading-[1.1] mb-3 text-[#79941E]">
+                  Cadastre-se para<br /> economizar ou investir!
+                </h2>
+                <p className="text-[#888888] font-medium text-[0.95rem] md:text-[1rem] mb-8 max-w-[90%]">
+                  Deixe suas informações abaixo que a Sundeal vai entrar<br className="hidden md:block" /> em contato com você!
+                </p>
                 
-                <div className="flex flex-col md:flex-row gap-4">
-                  <div className="flex flex-col gap-1.5 flex-1">
-                    <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Telefone com Whatsapp:</label>
-                    <input type="text" placeholder="(xx) xxxxx-xxxx" className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
+                <form className="flex flex-col gap-5 w-full max-w-[500px]">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Nome:</label>
+                    <input type="text" placeholder="Seu nome completo" className="bg-[#F8F9F5] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
                   </div>
-                  <div className="flex flex-col gap-1.5 flex-1">
-                    <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Selecione seu interesse:</label>
-                    <div className="relative">
-                      <select className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 appearance-none w-full cursor-pointer">
-                        <option>Quero economizar</option>
-                        <option>Quero investir</option>
-                      </select>
-                      {/* Custom dropdown arrow */}
-                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#A8A8A8]">
-                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M1.5 1.5L6 6L10.5 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                  
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex flex-col gap-1.5 flex-1">
+                      <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Telefone com Whatsapp:</label>
+                      <input type="text" placeholder="(xx) xxxxx-xxxx" className="bg-[#F8F9F5] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
+                    </div>
+                    <div className="flex flex-col gap-1.5 flex-1">
+                      <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Selecione seu interesse:</label>
+                      <div className="relative">
+                        <select className="bg-[#F8F9F5] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 appearance-none w-full cursor-pointer">
+                          <option>Quero economizar</option>
+                          <option>Quero investir</option>
+                        </select>
+                        {/* Custom dropdown arrow */}
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#A8A8A8]">
+                          <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.5 1.5L6 6L10.5 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                
-                <button type="button" className="mt-3 bg-[#8CA420] hover:bg-[#7a8f1c] transition-colors text-[#2C380B] font-bold text-[1rem] rounded-[14px] py-4 flex items-center justify-center w-full">
-                  Enviar
-                </button>
-              </form>
-            </div>
-
-            {/* Right Column (Image & Circles) */}
-            <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center bg-[#FFFBEB] z-10">
-              {/* Concentric Gradient Circles - No overflow hidden on parent, so they bleed left */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-full h-full z-0">
-                 {/* Outer Circle */}
-                 <div className="absolute rounded-full bg-[#FEF4BA]" style={{ width: '135%', paddingBottom: '135%' }}></div>
-                 {/* Inner Circle */}
-                 <div className="absolute rounded-full bg-[#FCE679]" style={{ width: '85%', paddingBottom: '85%' }}></div>
+                  
+                  <button type="button" className="mt-3 bg-[#8CA420] hover:bg-[#7a8f1c] transition-colors text-[#2C380B] font-bold text-[1rem] rounded-[14px] py-4 px-12 flex items-center justify-center w-full md:w-max md:self-start">
+                    Enviar
+                  </button>
+                </form>
               </div>
-              
-              {/* Click Icon */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-                className="relative z-20 w-[75%] max-w-[320px]"
-              >
-                <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.12)]" />
-              </motion.div>
+
+              {/* Right Column (Image) */}
+              <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center">
+                {/* Click Icon */}
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
+                  className="relative z-20 w-[60%] max-w-[280px]"
+                >
+                  <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.12)]" />
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>

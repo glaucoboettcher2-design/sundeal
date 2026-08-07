@@ -201,59 +201,74 @@ const FAQSection = () => {
         </div>
 
         {/* CTA Card injected from former ContatoSection */}
+        {/* New Registration Form CTA */}
         <div className="relative z-10 max-w-[1180px] mx-auto mt-20">
           <div
-            className="reveal-item opacity-0 translate-y-8 translate-x-8 blur-md transition-all duration-700 relative overflow-hidden rounded-[36px] px-8 md:px-16 py-12 md:py-14 text-center"
-            style={{
-              background:
-                "linear-gradient(180deg, hsl(72 73% 32%) 0%, hsl(72 73% 26%) 100%)",
-              boxShadow:
-                "0 30px 60px -25px hsl(72 65% 12% / 0.45), inset 0 1px 0 hsl(0 0% 100% / 0.12)",
-            }}
+            className="reveal-item opacity-0 translate-y-8 translate-x-8 blur-md transition-all duration-700 relative overflow-hidden rounded-[36px] bg-white flex flex-col md:flex-row items-stretch shadow-[0_20px_50px_rgba(0,0,0,0.08)]"
           >
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 30% 20%, hsl(72 75% 55% / 0.35) 0%, transparent 55%)",
-              }}
-            />
-
-
-
-            <div className="relative z-10 flex flex-col items-center">
-              <span className="block text-xs md:text-sm font-bold tracking-[0.14em] uppercase text-on-dark-strong mb-3 dark-section-text-shadow">
-                Atendimento direto
-              </span>
-              <h2
-                className="font-mont font-bold leading-[1.15] mb-3"
-                style={{
-                  fontSize: "clamp(1.6rem, 2.6vw, 2.4rem)",
-                  color: "hsl(0 0% 100%)",
-                  textShadow: "0 2px 14px hsl(0 0% 0% / 0.25)",
-                }}
-              >
-                Fale com a gente agora pelo WhatsApp
+            {/* Left Column (Form) */}
+            <div className="flex-1 w-full p-8 md:p-14 lg:p-16 text-left flex flex-col justify-center">
+              <h2 className="font-mont font-extrabold text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] leading-[1.1] mb-4 text-sundeal-green-dark">
+                Cadastre-se para economizar<br className="hidden lg:block"/> ou investir!
               </h2>
-              <p className="text-[0.95rem] md:text-[1rem] text-on-dark-strong mb-7 leading-relaxed max-w-[640px] mx-auto dark-section-text-shadow">
-                Tire suas dúvidas e receba uma simulação personalizada em minutos.
-                Sem compromisso, sem custo.
+              <p className="text-sundeal-text-muted font-medium text-[0.95rem] md:text-[1.05rem] mb-10 max-w-[90%]">
+                Deixe suas informações abaixo que a Sundeal vai entrar em contato com você!
               </p>
+              
+              <form className="flex flex-col gap-6 w-full">
+                <div className="flex flex-col gap-2">
+                  <label className="text-[0.85rem] font-bold text-sundeal-text-muted/80 ml-1">Nome:</label>
+                  <input type="text" placeholder="Seu nome completo" className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-sundeal-text-dark placeholder-sundeal-text-muted/50 focus:outline-none focus:ring-2 focus:ring-sundeal-green/50 w-full" />
+                </div>
+                
+                <div className="flex flex-col md:flex-row gap-5">
+                  <div className="flex flex-col gap-2 flex-1">
+                    <label className="text-[0.85rem] font-bold text-sundeal-text-muted/80 ml-1">Telefone com Whatsapp:</label>
+                    <input type="text" placeholder="(xx) xxxxx-xxxx" className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-sundeal-text-dark placeholder-sundeal-text-muted/50 focus:outline-none focus:ring-2 focus:ring-sundeal-green/50 w-full" />
+                  </div>
+                  <div className="flex flex-col gap-2 flex-1">
+                    <label className="text-[0.85rem] font-bold text-sundeal-text-muted/80 ml-1">Selecione seu interesse:</label>
+                    <div className="relative">
+                      <select className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-sundeal-text-muted/80 focus:outline-none focus:ring-2 focus:ring-sundeal-green/50 appearance-none w-full cursor-pointer">
+                        <option>Quero economizar</option>
+                        <option>Quero investir</option>
+                      </select>
+                      {/* Custom dropdown arrow */}
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-sundeal-text-muted/60">
+                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1.5 1.5L6 6L10.5 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <button type="button" className="mt-4 bg-[#8CA420] hover:bg-[#7a8f1c] transition-colors text-[#2C380B] hover:text-white font-black text-[1.05rem] rounded-[14px] py-4 flex items-center justify-center w-full md:w-auto md:px-12 md:self-start">
+                  Enviar
+                </button>
+              </form>
+            </div>
 
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-glow-button px-8 py-4 text-base inline-flex items-center justify-center gap-2"
+            {/* Right Column (Image & Circles) */}
+            <div className="flex-1 w-full relative min-h-[350px] md:min-h-full flex items-center justify-center overflow-hidden bg-white">
+              {/* Concentric Gradient Circles */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-40">
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full" style={{ width: '100%', height: '100%', background: 'radial-gradient(circle, #FDE68A 0%, transparent 70%)' }}></div>
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[15px] border-[#FEF08A]/30" style={{ width: '70%', height: '70%' }}></div>
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[20px] border-[#FEF08A]/50" style={{ width: '45%', height: '45%' }}></div>
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FDE047]/20" style={{ width: '25%', height: '25%' }}></div>
+              </div>
+              
+              {/* Click Icon */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
+                className="relative z-10 w-[70%] max-w-[320px]"
               >
-                <WhatsAppIcon className="w-5 h-5" />
-                <span>Falar no WhatsApp</span>
-                <span aria-hidden>→</span>
-              </a>
-
-              <p className="mt-4 text-[0.78rem] text-on-dark-strong/85 dark-section-text-shadow">
-                Resposta em até 24h · Análise gratuita · Processo 100% digital
-              </p>
+                <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-2xl" />
+              </motion.div>
             </div>
           </div>
         </div>

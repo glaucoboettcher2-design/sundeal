@@ -208,7 +208,7 @@ const FAQSection = () => {
           >
             {/* Left Column (Form) */}
             <div className="w-full md:w-[55%] p-10 md:p-14 lg:p-16 text-left flex flex-col justify-center bg-white relative z-20">
-              <h2 className="font-mont font-extrabold text-[2rem] md:text-[2.4rem] leading-[1.1] mb-5 text-[#627C17]">
+              <h2 className="font-mont font-extrabold text-[2rem] md:text-[2.4rem] leading-[1.1] mb-5 text-sundeal-green-dark">
                 Cadastre-se para<br/>economizar<br className="hidden md:block"/> ou investir!
               </h2>
               <p className="text-[#888888] font-medium text-[0.95rem] md:text-[1.05rem] mb-10 max-w-[90%] leading-snug">
@@ -217,19 +217,19 @@ const FAQSection = () => {
               
               <form className="flex flex-col gap-6 w-full max-w-[500px]">
                 <div className="flex flex-col gap-2.5">
-                  <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Nome:</label>
-                  <input type="text" placeholder="Seu nome completo" className="bg-[#F8F9F5] rounded-[14px] px-5 py-4 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
+                  <label className="text-[0.75rem] font-bold text-[#888888] ml-1">Nome:</label>
+                  <input type="text" placeholder="Seu nome completo" className="bg-[#F5F7F0] rounded-[14px] px-5 py-4 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
                 </div>
                 
                 <div className="flex flex-col md:flex-row gap-5">
                   <div className="flex flex-col gap-2.5 flex-1">
-                    <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Telefone com Whatsapp:</label>
-                    <input type="text" placeholder="(xx) xxxxx-xxxx" className="bg-[#F8F9F5] rounded-[14px] px-5 py-4 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
+                    <label className="text-[0.75rem] font-bold text-[#888888] ml-1">Telefone com Whatsapp:</label>
+                    <input type="text" placeholder="(xx) xxxxx-xxxx" className="bg-[#F5F7F0] rounded-[14px] px-5 py-4 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
                   </div>
                   <div className="flex flex-col gap-2.5 flex-1">
-                    <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Selecione seu interesse:</label>
+                    <label className="text-[0.75rem] font-bold text-[#888888] ml-1">Selecione seu interesse:</label>
                     <div className="relative">
-                      <select className="bg-[#F8F9F5] rounded-[14px] px-5 py-4 text-[0.95rem] text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 appearance-none w-full cursor-pointer">
+                      <select className="bg-[#F5F7F0] rounded-[14px] px-5 py-4 text-[0.95rem] text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 appearance-none w-full cursor-pointer">
                         <option>Quero economizar</option>
                         <option>Quero investir</option>
                       </select>
@@ -250,12 +250,15 @@ const FAQSection = () => {
             </div>
 
             {/* Right Column (Image & Circles) */}
-            <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center overflow-hidden bg-[#FDF6D3] z-10">
+            <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center overflow-hidden bg-transparent z-10">
               {/* Concentric Gradient Circles */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-full h-full">
-                 <div className="absolute rounded-full bg-[#FCEE98]" style={{ width: '135%', paddingBottom: '135%' }}></div>
-                 <div className="absolute rounded-full bg-[#FBE46A]" style={{ width: '90%', paddingBottom: '90%' }}></div>
-                 <div className="absolute rounded-full bg-[#FAD93D]" style={{ width: '55%', paddingBottom: '55%' }}></div>
+                 {/* Largest Circle */}
+                 <div className="absolute rounded-full bg-[#FEFCE8]" style={{ width: '180%', paddingBottom: '180%' }}></div>
+                 {/* Middle Circle */}
+                 <div className="absolute rounded-full bg-[#FEF9C3]" style={{ width: '130%', paddingBottom: '130%' }}></div>
+                 {/* Inner Circle */}
+                 <div className="absolute rounded-full bg-[#FEF08A]" style={{ width: '80%', paddingBottom: '80%' }}></div>
               </div>
               
               {/* Click Icon */}
@@ -264,7 +267,7 @@ const FAQSection = () => {
                 whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-                className="relative z-10 w-[60%] max-w-[280px]"
+                className="relative z-10 w-[85%] max-w-[380px]"
               >
                 <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)]" />
               </motion.div>

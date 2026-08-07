@@ -204,37 +204,37 @@ const FAQSection = () => {
         {/* New Registration Form CTA */}
         <div className="relative z-10 max-w-[1180px] mx-auto mt-20">
           <div
-            className="reveal-item opacity-0 translate-y-8 translate-x-8 blur-md transition-all duration-700 relative overflow-hidden rounded-[36px] bg-white flex flex-col md:flex-row items-stretch shadow-[0_20px_50px_rgba(0,0,0,0.08)]"
+            className="reveal-item opacity-0 translate-y-8 translate-x-8 blur-md transition-all duration-700 relative overflow-hidden rounded-[40px] bg-white flex flex-col md:flex-row items-stretch shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
           >
             {/* Left Column (Form) */}
-            <div className="flex-1 w-full p-8 md:p-14 lg:p-16 text-left flex flex-col justify-center">
-              <h2 className="font-mont font-extrabold text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] leading-[1.1] mb-4 text-sundeal-green-dark">
-                Cadastre-se para economizar<br className="hidden lg:block"/> ou investir!
+            <div className="w-full md:w-[55%] p-10 md:p-14 lg:p-16 text-left flex flex-col justify-center bg-white relative z-20">
+              <h2 className="font-mont font-extrabold text-[2rem] md:text-[2.4rem] leading-[1.1] mb-5 text-[#627C17]">
+                Cadastre-se para<br/>economizar<br className="hidden md:block"/> ou investir!
               </h2>
-              <p className="text-sundeal-text-muted font-medium text-[0.95rem] md:text-[1.05rem] mb-10 max-w-[90%]">
-                Deixe suas informações abaixo que a Sundeal vai entrar em contato com você!
+              <p className="text-[#888888] font-medium text-[0.95rem] md:text-[1.05rem] mb-10 max-w-[90%] leading-snug">
+                Deixe suas informações abaixo que a Sundeal vai entrar<br className="hidden lg:block"/> em contato com você!
               </p>
               
-              <form className="flex flex-col gap-6 w-full">
-                <div className="flex flex-col gap-2">
-                  <label className="text-[0.85rem] font-bold text-sundeal-text-muted/80 ml-1">Nome:</label>
-                  <input type="text" placeholder="Seu nome completo" className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-sundeal-text-dark placeholder-sundeal-text-muted/50 focus:outline-none focus:ring-2 focus:ring-sundeal-green/50 w-full" />
+              <form className="flex flex-col gap-6 w-full max-w-[500px]">
+                <div className="flex flex-col gap-2.5">
+                  <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Nome:</label>
+                  <input type="text" placeholder="Seu nome completo" className="bg-[#F8F9F5] rounded-[14px] px-5 py-4 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
                 </div>
                 
                 <div className="flex flex-col md:flex-row gap-5">
-                  <div className="flex flex-col gap-2 flex-1">
-                    <label className="text-[0.85rem] font-bold text-sundeal-text-muted/80 ml-1">Telefone com Whatsapp:</label>
-                    <input type="text" placeholder="(xx) xxxxx-xxxx" className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-sundeal-text-dark placeholder-sundeal-text-muted/50 focus:outline-none focus:ring-2 focus:ring-sundeal-green/50 w-full" />
+                  <div className="flex flex-col gap-2.5 flex-1">
+                    <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Telefone com Whatsapp:</label>
+                    <input type="text" placeholder="(xx) xxxxx-xxxx" className="bg-[#F8F9F5] rounded-[14px] px-5 py-4 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
                   </div>
-                  <div className="flex flex-col gap-2 flex-1">
-                    <label className="text-[0.85rem] font-bold text-sundeal-text-muted/80 ml-1">Selecione seu interesse:</label>
+                  <div className="flex flex-col gap-2.5 flex-1">
+                    <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Selecione seu interesse:</label>
                     <div className="relative">
-                      <select className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-sundeal-text-muted/80 focus:outline-none focus:ring-2 focus:ring-sundeal-green/50 appearance-none w-full cursor-pointer">
+                      <select className="bg-[#F8F9F5] rounded-[14px] px-5 py-4 text-[0.95rem] text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 appearance-none w-full cursor-pointer">
                         <option>Quero economizar</option>
                         <option>Quero investir</option>
                       </select>
                       {/* Custom dropdown arrow */}
-                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-sundeal-text-muted/60">
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-[#A8A8A8]">
                         <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M1.5 1.5L6 6L10.5 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
@@ -243,20 +243,19 @@ const FAQSection = () => {
                   </div>
                 </div>
                 
-                <button type="button" className="mt-4 bg-[#8CA420] hover:bg-[#7a8f1c] transition-colors text-[#2C380B] hover:text-white font-black text-[1.05rem] rounded-[14px] py-4 flex items-center justify-center w-full md:w-auto md:px-12 md:self-start">
+                <button type="button" className="mt-4 bg-[#8CA420] hover:bg-[#7a8f1c] transition-colors text-[#2C380B] font-bold text-[1rem] rounded-[14px] py-4 px-12 flex items-center justify-center w-full md:w-auto md:self-start">
                   Enviar
                 </button>
               </form>
             </div>
 
             {/* Right Column (Image & Circles) */}
-            <div className="flex-1 w-full relative min-h-[350px] md:min-h-full flex items-center justify-center overflow-hidden bg-white">
+            <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center overflow-hidden bg-[#FDF6D3] z-10">
               {/* Concentric Gradient Circles */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-full h-full">
-                 <div className="absolute rounded-full bg-[#fffce8]" style={{ width: '1200px', height: '1200px' }}></div>
-                 <div className="absolute rounded-full bg-[#fef5b5]" style={{ width: '800px', height: '800px' }}></div>
-                 <div className="absolute rounded-full bg-[#fce762]/50" style={{ width: '500px', height: '500px' }}></div>
-                 <div className="absolute rounded-full bg-[#fadb14]/40" style={{ width: '300px', height: '300px' }}></div>
+                 <div className="absolute rounded-full bg-[#FCEE98]" style={{ width: '135%', paddingBottom: '135%' }}></div>
+                 <div className="absolute rounded-full bg-[#FBE46A]" style={{ width: '90%', paddingBottom: '90%' }}></div>
+                 <div className="absolute rounded-full bg-[#FAD93D]" style={{ width: '55%', paddingBottom: '55%' }}></div>
               </div>
               
               {/* Click Icon */}
@@ -265,9 +264,9 @@ const FAQSection = () => {
                 whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-                className="relative z-10 w-[70%] max-w-[320px]"
+                className="relative z-10 w-[60%] max-w-[280px]"
               >
-                <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-2xl" />
+                <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)]" />
               </motion.div>
             </div>
           </div>

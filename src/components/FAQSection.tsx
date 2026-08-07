@@ -207,18 +207,20 @@ const FAQSection = () => {
             className="reveal-item opacity-0 translate-y-8 translate-x-8 blur-md transition-all duration-700 relative overflow-hidden rounded-[40px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)] min-h-[500px]"
           >
             {/* Unified Background Layer (Decoupled for perfect bleeding) */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-[40px]">
               {/* Right column solid background */}
               <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF3]"></div>
               
-              {/* Concentric Circles Container - ORIGINATING FROM FAR RIGHT EDGE */}
+              {/* Concentric Circles - Tightly packed thick rings, center pushed right */}
               <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] pointer-events-none">
-                   {/* Circle 1 (Outer - Thin ring bleeding deep into form) */}
-                   <div className="absolute top-1/2 right-0 translate-x-[40%] md:translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFF8D6] aspect-square" style={{ width: '280%' }}></div>
-                   {/* Circle 2 (Middle - Thin ring) */}
-                   <div className="absolute top-1/2 right-0 translate-x-[40%] md:translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FCEB92] aspect-square" style={{ width: '240%' }}></div>
-                   {/* Circle 3 (Inner - Massive circle, left edge touches form boundary) */}
-                   <div className="absolute top-1/2 right-0 translate-x-[40%] md:translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FCD53D] aspect-square" style={{ width: '200%' }}></div>
+                 <div className="absolute top-1/2 left-[75%] -translate-y-1/2 flex items-center justify-center">
+                   {/* Circle 1 (Outer - Thick ring bleeding into form) */}
+                   <div className="absolute rounded-full bg-[#FFF9D4] aspect-square" style={{ width: '240%' }}></div>
+                   {/* Circle 2 (Middle - Thick ring touching form boundary) */}
+                   <div className="absolute rounded-full bg-[#FEF0A0] aspect-square" style={{ width: '160%' }}></div>
+                   {/* Circle 3 (Inner - Solid dot contained in right column) */}
+                   <div className="absolute rounded-full bg-[#FEE168] aspect-square" style={{ width: '80%' }}></div>
+                 </div>
               </div>
             </div>
 
@@ -269,8 +271,8 @@ const FAQSection = () => {
 
               {/* Right Column (Image) */}
               <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center pointer-events-none">
-                {/* Icon Container - Centered exactly on the boundary between left and right columns! */}
-                <div className="absolute top-1/2 left-1/2 md:left-0 -translate-x-1/2 -translate-y-1/2 w-[55%] md:w-[45%] max-w-[240px] pointer-events-auto">
+                {/* Icon Container - Positioned to overlap the rings elegantly */}
+                <div className="absolute top-1/2 left-[20%] -translate-x-1/2 -translate-y-1/2 w-[40%] max-w-[180px] pointer-events-auto">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}

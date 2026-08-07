@@ -183,7 +183,7 @@ const ComparativoSection = () => {
                 <img 
                   src={houseIcon} 
                   alt="Tradicional" 
-                  className="w-full h-full object-contain drop-shadow-xl scale-[1.3]"
+                  className="w-full h-full object-contain drop-shadow-xl scale-[1.9]"
                 />
               </div>
               <h3
@@ -310,7 +310,7 @@ const ComparativoSection = () => {
               <div
                 className="w-48 h-48 flex items-center justify-center mb-6 relative group"
               >
-                <img src={sundealIcon} alt="Sundeal" className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-500 scale-[1.3] group-hover:scale-[1.4] group-hover:rotate-6" />
+                <img src={sundealIcon} alt="Sundeal" className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-500 scale-[1.1] group-hover:scale-[1.2] group-hover:rotate-6" />
               </div>
               <h3
                 className="font-mont font-extrabold text-[2rem] leading-tight mb-4"

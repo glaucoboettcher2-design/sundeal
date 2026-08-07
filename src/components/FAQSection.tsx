@@ -215,11 +215,11 @@ const FAQSection = () => {
               <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-[45%] h-full flex items-center justify-center overflow-visible">
                  <div className="relative w-full h-full flex items-center justify-center">
                    {/* Circle 1 (Outer - Thick ring) */}
-                   <div className="absolute rounded-full bg-[#FFF9DC] aspect-square" style={{ width: '150%' }}></div>
+                   <div className="absolute rounded-full bg-[#FFF8D6] aspect-square" style={{ width: '150%' }}></div>
                    {/* Circle 2 (Middle - Thick ring) */}
-                   <div className="absolute rounded-full bg-[#FFE885] aspect-square" style={{ width: '100%' }}></div>
+                   <div className="absolute rounded-full bg-[#FCEB92] aspect-square" style={{ width: '100%' }}></div>
                    {/* Circle 3 (Inner - Solid dot) */}
-                   <div className="absolute rounded-full bg-[#FDD835] aspect-square" style={{ width: '50%' }}></div>
+                   <div className="absolute rounded-full bg-[#FCD53D] aspect-square" style={{ width: '50%' }}></div>
                  </div>
               </div>
             </div>
@@ -272,7 +272,7 @@ const FAQSection = () => {
               {/* Right Column (Image) */}
               <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center pointer-events-none">
                 {/* Icon Container - Positioned on the left edge of the inner circle */}
-                <div className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 w-[75%] max-w-[320px] pointer-events-auto">
+                <div className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 w-[45%] max-w-[240px] pointer-events-auto">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}

@@ -144,19 +144,22 @@ const FAQSection = () => {
             style={{ 
               y: yParallax, 
               position: 'absolute',
-              top: '50%',
-              left: '65%', // shifted right
-              width: '4000px',
-              height: '4000px',
-              marginLeft: '-2000px', // center horizontally based on new width
-              marginTop: '-2000px',  // center vertically
+              top: '40%',
+              left: '75%', // shifted right
+              width: '1200px',
+              height: '1200px',
+              marginLeft: '-600px', // center horizontally based on new width
+              marginTop: '-600px',  // center vertically
             }}
-            className="opacity-[0.18] blur-[5px] select-none"
+            className="opacity-[0.35] blur-[2px] select-none pointer-events-none"
           >
             <img
-              src="/logo-bg.svg"
+              src="/faq-bg-icon.png"
               alt=""
               className="w-full h-full object-contain"
+              style={{
+                filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.15))"
+              }}
             />
           </motion.div>
         </div>

@@ -208,18 +208,18 @@ const FAQSection = () => {
           >
             {/* Unified Background Layer (Decoupled for perfect bleeding) */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-              {/* Right column solid background */}
-              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF2]"></div>
+              {/* Right column solid background (creme pálido) */}
+              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFDF3]"></div>
               
               {/* Concentric Circles Container - CENTERED on the right column */}
               <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-[45%] h-full flex items-center justify-center">
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
-                   {/* Circle 1 (Outer - Huge bleed into left column) */}
-                   <div className="absolute rounded-full bg-[#FFF6D4]" style={{ width: '135%', paddingBottom: '135%' }}></div>
-                   {/* Circle 2 (Middle) */}
-                   <div className="absolute rounded-full bg-[#FCE580]" style={{ width: '90%', paddingBottom: '90%' }}></div>
-                   {/* Circle 3 (Inner - Strong yellow) */}
-                   <div className="absolute rounded-full bg-[#FCD135]" style={{ width: '45%', paddingBottom: '45%' }}></div>
+                   {/* Circle 1 (Outer - amarelo manteiga suave) */}
+                   <div className="absolute rounded-full bg-[#FFF5CC]" style={{ width: '135%', paddingBottom: '135%' }}></div>
+                   {/* Circle 2 (Middle - amarelo um pouco mais vivo) */}
+                   <div className="absolute rounded-full bg-[#FEEA99]" style={{ width: '110%', paddingBottom: '110%' }}></div>
+                   {/* Circle 3 (Inner - amarelo quente, transição suave, bem grande) */}
+                   <div className="absolute rounded-full bg-[#FCD75D]" style={{ width: '85%', paddingBottom: '85%' }}></div>
                  </div>
               </div>
             </div>

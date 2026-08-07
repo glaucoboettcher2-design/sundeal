@@ -208,28 +208,28 @@ const FAQSection = () => {
           >
             {/* Left Column (Form) */}
             <div className="w-full md:w-[55%] p-8 md:p-12 text-left flex flex-col justify-center bg-white relative z-20">
-              <h2 className="font-mont font-extrabold text-[1.8rem] md:text-[2.2rem] leading-[1.1] mb-3 text-sundeal-green-dark">
-                Cadastre-se para economizar<br /> ou investir!
+              <h2 className="font-mont font-extrabold text-[1.8rem] md:text-[2.2rem] leading-[1.1] mb-3 text-[#79941E]">
+                Cadastre-se para<br /> economizar ou investir!
               </h2>
               <p className="text-[#888888] font-medium text-[0.95rem] md:text-[1rem] mb-8 max-w-[90%]">
-                Deixe suas informações abaixo que a Sundeal vai entrar em contato com você!
+                Deixe suas informações abaixo que a Sundeal vai entrar<br className="hidden md:block" /> em contato com você!
               </p>
               
               <form className="flex flex-col gap-5 w-full max-w-[500px]">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Nome:</label>
-                  <input type="text" placeholder="Seu nome completo" className="bg-[#F8F9F5] rounded-[16px] px-5 py-3 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
+                  <input type="text" placeholder="Seu nome completo" className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
                 </div>
                 
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex flex-col gap-1.5 flex-1">
                     <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Telefone com Whatsapp:</label>
-                    <input type="text" placeholder="(xx) xxxxx-xxxx" className="bg-[#F8F9F5] rounded-[16px] px-5 py-3 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
+                    <input type="text" placeholder="(xx) xxxxx-xxxx" className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
                   </div>
                   <div className="flex flex-col gap-1.5 flex-1">
                     <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Selecione seu interesse:</label>
                     <div className="relative">
-                      <select className="bg-[#F8F9F5] rounded-[16px] px-5 py-3 text-[0.95rem] text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 appearance-none w-full cursor-pointer">
+                      <select className="bg-[#F6F8F3] rounded-[14px] px-5 py-3.5 text-[0.95rem] text-[#9A9A9A] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 appearance-none w-full cursor-pointer">
                         <option>Quero economizar</option>
                         <option>Quero investir</option>
                       </select>
@@ -243,31 +243,29 @@ const FAQSection = () => {
                   </div>
                 </div>
                 
-                <button type="button" className="mt-3 bg-[#8CA420] hover:bg-[#7a8f1c] transition-colors text-[#2C380B] font-bold text-[1rem] rounded-[16px] py-3.5 px-10 flex items-center justify-center w-full md:w-max md:self-start">
+                <button type="button" className="mt-3 bg-[#8CA420] hover:bg-[#7a8f1c] transition-colors text-[#2C380B] font-bold text-[1rem] rounded-[14px] py-4 flex items-center justify-center w-full">
                   Enviar
                 </button>
               </form>
             </div>
 
             {/* Right Column (Image & Circles) */}
-            <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center overflow-hidden bg-white z-10">
-              {/* Concentric Gradient Circles */}
+            <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center bg-[#FFFBEB] z-10">
+              {/* Concentric Gradient Circles - No overflow hidden on parent, so they bleed left */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-full h-full z-0">
-                 {/* Largest Circle */}
-                 <div className="absolute rounded-full bg-[#FFFDF2]" style={{ width: '130%', paddingBottom: '130%' }}></div>
-                 {/* Middle Circle */}
-                 <div className="absolute rounded-full bg-[#FFF8D6]" style={{ width: '85%', paddingBottom: '85%' }}></div>
+                 {/* Outer Circle */}
+                 <div className="absolute rounded-full bg-[#FEF4BA]" style={{ width: '135%', paddingBottom: '135%' }}></div>
                  {/* Inner Circle */}
-                 <div className="absolute rounded-full bg-[#FFF3B8]" style={{ width: '50%', paddingBottom: '50%' }}></div>
+                 <div className="absolute rounded-full bg-[#FCE679]" style={{ width: '85%', paddingBottom: '85%' }}></div>
               </div>
               
               {/* Click Icon */}
               <motion.div 
-                initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-                className="relative z-20 w-[65%] max-w-[280px]"
+                className="relative z-20 w-[75%] max-w-[320px]"
               >
                 <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.12)]" />
               </motion.div>

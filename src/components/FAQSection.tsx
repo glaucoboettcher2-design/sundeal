@@ -208,18 +208,18 @@ const FAQSection = () => {
           >
             {/* Unified Background Layer (Decoupled for perfect bleeding) */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-              {/* Right column solid background (creme pálido) */}
-              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFDF3]"></div>
+              {/* Right column solid background */}
+              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF3]"></div>
               
               {/* Concentric Circles Container - CENTERED on the right column */}
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-[45%] h-full flex items-center justify-center">
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
-                   {/* Circle 1 (Outer - amarelo manteiga suave) */}
-                   <div className="absolute rounded-full bg-[#FFF5CC]" style={{ width: '135%', paddingBottom: '135%' }}></div>
-                   {/* Circle 2 (Middle - amarelo um pouco mais vivo) */}
-                   <div className="absolute rounded-full bg-[#FEEA99]" style={{ width: '110%', paddingBottom: '110%' }}></div>
-                   {/* Circle 3 (Inner - amarelo quente, transição suave, bem grande) */}
-                   <div className="absolute rounded-full bg-[#FCD75D]" style={{ width: '85%', paddingBottom: '85%' }}></div>
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-[45%] h-full flex items-center justify-center overflow-visible">
+                 <div className="relative w-full h-full flex items-center justify-center">
+                   {/* Circle 1 (Outer - Thick ring) */}
+                   <div className="absolute rounded-full bg-[#FFF9DC] aspect-square" style={{ width: '150%' }}></div>
+                   {/* Circle 2 (Middle - Thick ring) */}
+                   <div className="absolute rounded-full bg-[#FFE885] aspect-square" style={{ width: '100%' }}></div>
+                   {/* Circle 3 (Inner - Solid dot) */}
+                   <div className="absolute rounded-full bg-[#FDD835] aspect-square" style={{ width: '50%' }}></div>
                  </div>
               </div>
             </div>
@@ -263,7 +263,7 @@ const FAQSection = () => {
                     </div>
                   </div>
                   
-                  <button type="button" className="mt-3 bg-[#8CA420] hover:bg-[#7a8f1c] transition-colors text-[#2C380B] font-bold text-[1rem] rounded-[16px] py-3.5 px-10 flex items-center justify-center w-full md:w-max md:self-start">
+                  <button type="button" className="mt-3 bg-[#8CA420] hover:bg-[#7a8f1c] transition-colors text-[#2C380B] font-bold text-[1rem] rounded-[16px] py-3.5 px-10 flex items-center justify-center w-full">
                     Enviar
                   </button>
                 </form>
@@ -271,8 +271,8 @@ const FAQSection = () => {
 
               {/* Right Column (Image) */}
               <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center pointer-events-none">
-                {/* Icon Container - OFFSET TO THE LEFT edge of the right column! */}
-                <div className="absolute top-1/2 left-[15%] -translate-x-1/2 -translate-y-1/2 w-[85%] max-w-[340px] pointer-events-auto">
+                {/* Icon Container - Positioned on the left edge of the inner circle */}
+                <div className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 w-[75%] max-w-[320px] pointer-events-auto">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}

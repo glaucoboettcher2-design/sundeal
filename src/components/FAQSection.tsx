@@ -252,11 +252,11 @@ const FAQSection = () => {
             {/* Right Column (Image & Circles) */}
             <div className="flex-1 w-full relative min-h-[350px] md:min-h-full flex items-center justify-center overflow-hidden bg-white">
               {/* Concentric Gradient Circles */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-40">
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full" style={{ width: '100%', height: '100%', background: 'radial-gradient(circle, #FDE68A 0%, transparent 70%)' }}></div>
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[15px] border-[#FEF08A]/30" style={{ width: '70%', height: '70%' }}></div>
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[20px] border-[#FEF08A]/50" style={{ width: '45%', height: '45%' }}></div>
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FDE047]/20" style={{ width: '25%', height: '25%' }}></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center w-full h-full">
+                 <div className="absolute rounded-full bg-[#fffce8]" style={{ width: '1200px', height: '1200px' }}></div>
+                 <div className="absolute rounded-full bg-[#fef5b5]" style={{ width: '800px', height: '800px' }}></div>
+                 <div className="absolute rounded-full bg-[#fce762]/50" style={{ width: '500px', height: '500px' }}></div>
+                 <div className="absolute rounded-full bg-[#fadb14]/40" style={{ width: '300px', height: '300px' }}></div>
               </div>
               
               {/* Click Icon */}

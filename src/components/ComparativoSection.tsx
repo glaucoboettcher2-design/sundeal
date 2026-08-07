@@ -11,8 +11,8 @@ import {
   Calendar
 } from "lucide-react";
 
-import houseIcon from "@/assets/trad_icon_lightyellow.png";
-import sundealIcon from "@/assets/sundeal_icon_3d.png";
+import houseIcon from "@/assets/porquinho-quebrado.png";
+import sundealIcon from "@/assets/porquinho-inteiro.png";
 import solarPanelsBg from "@/assets/solar-panels-bg.jpg";
 import sundealStep1 from "@/assets/sundeal-step-1.png";
 import sundealStep2 from "@/assets/sundeal-step-2.png";
@@ -183,12 +183,7 @@ const ComparativoSection = () => {
                 <img 
                   src={houseIcon} 
                   alt="Tradicional" 
-                  className="w-full h-full object-cover"
-                  style={{
-                    WebkitMaskImage: "radial-gradient(circle at center, black 35%, transparent 60%)",
-                    maskImage: "radial-gradient(circle at center, black 35%, transparent 60%)",
-                    filter: "brightness(1.15) saturate(0.65)"
-                  }}
+                  className="w-[120%] h-[120%] object-contain drop-shadow-xl"
                 />
               </div>
               <h3
@@ -315,7 +310,7 @@ const ComparativoSection = () => {
               <div
                 className="w-32 h-32 flex items-center justify-center mb-6 relative group"
               >
-                <img src={sundealIcon} alt="Sundeal" className="w-full h-full object-contain mix-blend-screen transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
+                <img src={sundealIcon} alt="Sundeal" className="w-[120%] h-[120%] object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
               </div>
               <h3
                 className="font-mont font-extrabold text-[2rem] leading-tight mb-4"

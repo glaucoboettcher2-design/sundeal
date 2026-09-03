@@ -211,17 +211,17 @@ const FAQSection = () => {
               {/* Right column solid background */}
               <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF3]"></div>
               
-              {/* Concentric Circles - FOUR circles with perfect linear progression (10, 8, 6, 4) */}
+              {/* Concentric Circles - Fully contained vertically, shifted slightly left */}
               <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] pointer-events-none">
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
-                   {/* Circle 1 (Outermost - Bleeds deeply into form) */}
-                   <div className="absolute rounded-full bg-[#FFF9D4] aspect-square" style={{ width: '200%' }}></div>
-                   {/* Circle 2 (Middle-outer - Bleeds into form) */}
-                   <div className="absolute rounded-full bg-[#FEF0A0] aspect-square" style={{ width: '160%' }}></div>
-                   {/* Circle 3 (Middle-inner - Touches/aligns with form boundary) */}
-                   <div className="absolute rounded-full bg-[#FEE168] aspect-square" style={{ width: '120%' }}></div>
-                   {/* Circle 4 (Inner - Solid dot, stays well inside right column) */}
-                   <div className="absolute rounded-full bg-[#FCD53D] aspect-square" style={{ width: '80%' }}></div>
+                 <div className="absolute top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
+                   {/* Circle 1 (Outermost - Bleeds slightly into form, contained vertically) */}
+                   <div className="absolute rounded-full bg-[#FFF9D4] aspect-square" style={{ width: '100%' }}></div>
+                   {/* Circle 2 (Middle-outer - Touches form boundary) */}
+                   <div className="absolute rounded-full bg-[#FEF0A0] aspect-square" style={{ width: '80%' }}></div>
+                   {/* Circle 3 (Middle-inner) */}
+                   <div className="absolute rounded-full bg-[#FEE168] aspect-square" style={{ width: '60%' }}></div>
+                   {/* Circle 4 (Inner - Solid dot) */}
+                   <div className="absolute rounded-full bg-[#FCD53D] aspect-square" style={{ width: '40%' }}></div>
                  </div>
               </div>
             </div>

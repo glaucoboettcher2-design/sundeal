@@ -209,17 +209,17 @@ const FAQSection = () => {
             {/* Unified Background Layer (Decoupled for perfect bleeding) */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-[40px]">
               {/* Right column solid background */}
-              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFDF3]"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF3]"></div>
               
-              {/* Concentric Circles - Massive thick rings, centered in right column */}
+              {/* Concentric Circles - Center pushed far right (80%), massive gaps */}
               <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] pointer-events-none">
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
-                   {/* Circle 1 (Outer - Vast ring bleeding deep into form) */}
-                   <div className="absolute rounded-full bg-[#FFF5CC] aspect-square" style={{ width: '250%' }}></div>
-                   {/* Circle 2 (Middle - Vast ring bleeding into form) */}
-                   <div className="absolute rounded-full bg-[#FEEA99] aspect-square" style={{ width: '150%' }}></div>
-                   {/* Circle 3 (Inner - Small solid dot) */}
-                   <div className="absolute rounded-full bg-[#FCD75D] aspect-square" style={{ width: '50%' }}></div>
+                 <div className="absolute top-1/2 left-[80%] -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
+                   {/* Circle 1 (Outer - Bleeds deeply into form) */}
+                   <div className="absolute rounded-full bg-[#FFF8D6] aspect-square" style={{ width: '280%' }}></div>
+                   {/* Circle 2 (Middle - Left edge touches form boundary exactly) */}
+                   <div className="absolute rounded-full bg-[#FCEB92] aspect-square" style={{ width: '160%' }}></div>
+                   {/* Circle 3 (Inner - Small solid dot, stays on the right) */}
+                   <div className="absolute rounded-full bg-[#FCD53D] aspect-square" style={{ width: '40%' }}></div>
                  </div>
               </div>
             </div>
@@ -271,8 +271,8 @@ const FAQSection = () => {
 
               {/* Right Column (Image) */}
               <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center pointer-events-none">
-                {/* Icon Container - Positioned to overlap the rings elegantly */}
-                <div className="absolute top-1/2 left-[15%] -translate-x-1/2 -translate-y-1/2 w-[40%] max-w-[180px] pointer-events-auto">
+                {/* Icon Container - Positioned on the exact boundary between columns */}
+                <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-[40%] max-w-[180px] pointer-events-auto">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}

@@ -273,7 +273,7 @@ const FAQSection = () => {
 
               {/* Right Column (Image) */}
               <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center pointer-events-none">
-                {/* Icon Container - Positioned higher, larger, more left, with a strong shadow */}
+                {/* Icon Container */}
                 <div className="absolute top-[40%] left-[-5%] -translate-x-1/2 -translate-y-1/2 w-[65%] max-w-[300px] pointer-events-auto z-50">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -282,7 +282,12 @@ const FAQSection = () => {
                     transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
                     className="relative z-50 w-full"
                   >
-                    <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_25px_40px_rgba(0,0,0,0.45)]" />
+                    <img 
+                      src="/click-icon.png" 
+                      alt="Clique" 
+                      className="w-full h-auto object-contain" 
+                      style={{ filter: "drop-shadow(0px 20px 30px rgba(0,0,0,0.45))" }}
+                    />
                   </motion.div>
                 </div>
               </div>

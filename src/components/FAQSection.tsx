@@ -212,16 +212,16 @@ const FAQSection = () => {
               <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF3]"></div>
               
               {/* Concentric Circles - Moved down and right, slightly larger, slightly transparent */}
-              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] pointer-events-none opacity-[0.85]">
+              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] pointer-events-none opacity-[0.70]">
                  <div className="absolute top-[60%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
                    {/* Circle 1 */}
-                   <div className="absolute rounded-full bg-[#FFF9D4] aspect-square" style={{ width: '125%' }}></div>
+                   <div className="absolute rounded-full bg-[#FFF9D4] aspect-square" style={{ width: '150%' }}></div>
                    {/* Circle 2 */}
-                   <div className="absolute rounded-full bg-[#FEF0A0] aspect-square" style={{ width: '100%' }}></div>
+                   <div className="absolute rounded-full bg-[#FEF0A0] aspect-square" style={{ width: '120%' }}></div>
                    {/* Circle 3 */}
-                   <div className="absolute rounded-full bg-[#FEE168] aspect-square" style={{ width: '75%' }}></div>
+                   <div className="absolute rounded-full bg-[#FEE168] aspect-square" style={{ width: '90%' }}></div>
                    {/* Circle 4 */}
-                   <div className="absolute rounded-full bg-[#FCD53D] aspect-square" style={{ width: '50%' }}></div>
+                   <div className="absolute rounded-full bg-[#FCD53D] aspect-square" style={{ width: '60%' }}></div>
                  </div>
               </div>
             </div>
@@ -274,7 +274,7 @@ const FAQSection = () => {
               {/* Right Column (Image) */}
               <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center pointer-events-none">
                 {/* Icon Container - Positioned slightly higher, larger, and guaranteed to be in front */}
-                <div className="absolute top-[40%] left-0 -translate-x-1/2 -translate-y-1/2 w-[48%] max-w-[220px] pointer-events-auto z-50">
+                <div className="absolute top-[40%] left-0 -translate-x-1/2 -translate-y-1/2 w-[55%] max-w-[260px] pointer-events-auto z-50">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -282,7 +282,7 @@ const FAQSection = () => {
                     transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
                     className="relative z-50 w-full"
                   >
-                    <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.18)]" />
+                    <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.25)]" />
                   </motion.div>
                 </div>
               </div>

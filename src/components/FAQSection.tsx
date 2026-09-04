@@ -208,11 +208,11 @@ const FAQSection = () => {
           >
             {/* Unified Background Layer (Decoupled for perfect bleeding) */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-[40px]">
-              {/* Right column solid background */}
-              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF3]"></div>
+              {/* Right column solid background - Hidden on mobile */}
+              <div className="hidden md:block absolute right-0 top-0 bottom-0 w-[45%] bg-[#FFFCF3]"></div>
               
-              {/* Concentric Circles - Moved down and right, slightly larger, slightly transparent */}
-              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] pointer-events-none opacity-[0.60]">
+              {/* Concentric Circles - Hidden on mobile */}
+              <div className="hidden md:block absolute right-0 top-0 bottom-0 w-[45%] pointer-events-none opacity-[0.60]">
                  <div className="absolute top-[60%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
                    {/* Circle 1 */}
                    <div className="absolute rounded-full bg-[#FFF9D4] aspect-square" style={{ width: '160%' }}></div>
@@ -229,7 +229,7 @@ const FAQSection = () => {
             {/* Content Layer */}
             <div className="relative z-10 flex flex-col md:flex-row items-stretch h-full">
               {/* Left Column (Form) */}
-              <div className="w-full md:w-[55%] p-10 md:p-14 lg:p-16 text-left flex flex-col justify-center">
+              <div className="w-full md:w-[55%] p-8 md:p-14 lg:p-16 text-left flex flex-col justify-center">
                 <h2 className="font-mont font-extrabold text-[1.8rem] md:text-[2.2rem] leading-[1.1] mb-3 text-[#79941E]">
                   Cadastre-se para<br /> economizar ou investir!
                 </h2>
@@ -237,7 +237,7 @@ const FAQSection = () => {
                   Deixe suas informações abaixo que a Sundeal vai entrar<br className="hidden md:block" /> em contato com você!
                 </p>
                 
-                <form className="flex flex-col gap-5 w-full max-w-[500px]">
+                <form className="flex flex-col gap-5 w-full max-w-[500px] mx-auto md:mx-0">
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[0.8rem] font-bold text-[#888888] ml-1">Nome:</label>
                     <input type="text" placeholder="Seu nome completo" className="bg-[#F8F9F5] rounded-[16px] px-5 py-3.5 text-[0.95rem] text-[#4a4a4a] placeholder-[#C4C4C4] focus:outline-none focus:ring-2 focus:ring-[#8CA420]/50 w-full" />
@@ -271,8 +271,8 @@ const FAQSection = () => {
                 </form>
               </div>
 
-              {/* Right Column (Image) */}
-              <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center pointer-events-none">
+              {/* Right Column (Image) - Hidden on mobile */}
+              <div className="hidden md:flex w-[45%] relative min-h-[350px] md:min-h-full items-center justify-center pointer-events-none">
                 {/* Icon Container */}
                 <div className="absolute top-[40%] left-[-5%] -translate-x-1/2 -translate-y-1/2 w-[65%] max-w-[300px] pointer-events-auto z-50">
                   <motion.div 

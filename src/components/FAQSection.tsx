@@ -211,17 +211,17 @@ const FAQSection = () => {
               {/* Right column solid background */}
               <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] bg-[#FFFCF3]"></div>
               
-              {/* Concentric Circles - Fully contained vertically, shifted slightly left */}
-              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] pointer-events-none">
-                 <div className="absolute top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
-                   {/* Circle 1 (Outermost - Bleeds slightly into form, contained vertically) */}
-                   <div className="absolute rounded-full bg-[#FFF9D4] aspect-square" style={{ width: '100%' }}></div>
-                   {/* Circle 2 (Middle-outer - Touches form boundary) */}
-                   <div className="absolute rounded-full bg-[#FEF0A0] aspect-square" style={{ width: '80%' }}></div>
-                   {/* Circle 3 (Middle-inner) */}
-                   <div className="absolute rounded-full bg-[#FEE168] aspect-square" style={{ width: '60%' }}></div>
-                   {/* Circle 4 (Inner - Solid dot) */}
-                   <div className="absolute rounded-full bg-[#FCD53D] aspect-square" style={{ width: '40%' }}></div>
+              {/* Concentric Circles - Moved down and right, slightly larger, slightly transparent */}
+              <div className="absolute right-0 top-0 bottom-0 w-full md:w-[45%] pointer-events-none opacity-[0.85]">
+                 <div className="absolute top-[60%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center">
+                   {/* Circle 1 */}
+                   <div className="absolute rounded-full bg-[#FFF9D4] aspect-square" style={{ width: '125%' }}></div>
+                   {/* Circle 2 */}
+                   <div className="absolute rounded-full bg-[#FEF0A0] aspect-square" style={{ width: '100%' }}></div>
+                   {/* Circle 3 */}
+                   <div className="absolute rounded-full bg-[#FEE168] aspect-square" style={{ width: '75%' }}></div>
+                   {/* Circle 4 */}
+                   <div className="absolute rounded-full bg-[#FCD53D] aspect-square" style={{ width: '50%' }}></div>
                  </div>
               </div>
             </div>
@@ -273,16 +273,16 @@ const FAQSection = () => {
 
               {/* Right Column (Image) */}
               <div className="w-full md:w-[45%] relative min-h-[350px] md:min-h-full flex items-center justify-center pointer-events-none">
-                {/* Icon Container - Positioned on the exact boundary between columns */}
-                <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-[40%] max-w-[180px] pointer-events-auto">
+                {/* Icon Container - Positioned slightly higher, larger, and guaranteed to be in front */}
+                <div className="absolute top-[40%] left-0 -translate-x-1/2 -translate-y-1/2 w-[48%] max-w-[220px] pointer-events-auto z-50">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-                    className="relative z-20 w-full"
+                    className="relative z-50 w-full"
                   >
-                    <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)]" />
+                    <img src="/click-icon.png" alt="Clique" className="w-full h-auto object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.18)]" />
                   </motion.div>
                 </div>
               </div>

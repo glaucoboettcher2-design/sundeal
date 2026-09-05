@@ -285,7 +285,7 @@ const FAQSection = () => {
                     <img 
                       src="/click-icon.png" 
                       alt="Clique" 
-                      className="w-full h-auto object-contain" 
+                      className="w-full h-auto object-contain transition-all duration-300 ease-out hover:scale-[1.08] hover:-translate-y-2 hover:-rotate-3 cursor-pointer" 
                       style={{ filter: "drop-shadow(0px 20px 30px rgba(0,0,0,0.45))" }}
                     />
                   </motion.div>

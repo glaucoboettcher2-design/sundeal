@@ -274,7 +274,7 @@ const FAQSection = () => {
               {/* Right Column (Image) - Hidden on mobile */}
               <div className="hidden md:flex w-[45%] relative min-h-[350px] md:min-h-full items-center justify-center pointer-events-none">
                 {/* Icon Container */}
-                <div className="absolute top-[40%] left-[-5%] -translate-x-1/2 -translate-y-1/2 w-[65%] max-w-[300px] pointer-events-auto z-50">
+                <div className="absolute top-[44%] left-[-1%] -translate-x-1/2 -translate-y-1/2 w-[65%] max-w-[300px] pointer-events-auto z-50">
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}

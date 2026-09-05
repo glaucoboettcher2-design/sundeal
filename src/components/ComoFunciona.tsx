@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import video3etapas from "@/assets/3 etapas ok intra.mp4";
+import video3etapas from "@/assets/3_etapas_novo.mp4";
 
 const stepData = [
   {

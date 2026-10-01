@@ -35,7 +35,7 @@ const LoadingScreen = () => {
             <motion.img
               src="/logo-branca.png"
               alt="Sundeal Logo"
-              className="w-48 md:w-64 mb-10 drop-shadow-xl scale-[1.8]"
+              className="w-48 md:w-64 mb-10 drop-shadow-xl"
               animate={{ 
                 y: [0, -10, 0],
               }}

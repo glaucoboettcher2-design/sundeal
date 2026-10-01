@@ -125,23 +125,22 @@ const ComoFunciona = () => {
           background: "linear-gradient(160deg, hsl(72 18% 92%) 0%, hsl(72 14% 84%) 85%, hsl(72 14% 84%) 100%)",
         }}
       >
-        {/* Elemento fixo que prende a visualização enquanto rolamos */}
-        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-          
-          {/* Background blobs */}
+        {/* Background blobs */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="sticky top-0 w-full h-[100svh]"
             style={{
               background: "radial-gradient(ellipse at 80% 20%, hsl(72 65% 45% / 0.1) 0%, transparent 55%)",
             }}
           />
+        </div>
 
-          <div className="relative z-10 w-full max-w-[1240px] mx-auto px-[6vw]">
+        <div className="relative z-10 w-full max-w-[1240px] mx-auto px-[6vw] pt-20 md:pt-32 pb-20 md:pb-32 h-full">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start h-full">
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              
-              {/* Coluna da Esquerda: Título */}
-              <div className="lg:col-span-4 flex flex-col pt-4 md:pt-0">
+            {/* Coluna da Esquerda: Título (Não é sticky, rola naturalmente) */}
+            <div className="lg:col-span-4 flex flex-col">
                 <span className="block text-xs font-bold tracking-[0.12em] uppercase text-sundeal-green-mid mb-3.5">
                   Como funciona
                 </span>
@@ -164,10 +163,10 @@ const ComoFunciona = () => {
                 <p className="text-[#566b2a]/85 text-[1.05rem] leading-relaxed max-w-[400px]">
                   Transformamos o sol em desconto garantido na sua conta de luz, sem que você precise instalar nenhuma placa em casa.
                 </p>
-              </div>
+            </div>
 
-              {/* Coluna da Direita: Card Único Premium */}
-              <div className="lg:col-span-8">
+            {/* Coluna da Direita: Card Único Premium (ESTE é sticky) */}
+            <div className="lg:col-span-8 sticky top-24 lg:top-32 h-fit">
                 <div 
                   className="flex flex-col w-full rounded-[2.5rem] overflow-hidden relative"
                   style={{
@@ -183,7 +182,7 @@ const ComoFunciona = () => {
                       muted
                       playsInline
                       preload="auto"
-                      className="w-full max-h-[220px] md:max-h-[350px] object-contain"
+                      className="w-full h-auto object-contain"
                     />
                     {/* Fade com base 100% sólida para eliminar a linha de corte, dissipando suavemente acima */}
                     <div 

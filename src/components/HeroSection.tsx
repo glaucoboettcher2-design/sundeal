@@ -244,12 +244,6 @@ export const HeroSection = () => {
               </a>
             </div>
 
-            <p
-              className="text-on-dark-soft text-xs mt-4 animate-heroContent"
-              style={{ animationDelay: "3.0s" }}
-            >
-              Sem compromisso · Análise gratuita · 100% digital
-            </p>
           </div>
 
           {/* Right: Promo video — visible on tablet & desktop, hidden on mobile */}
@@ -299,6 +293,29 @@ export const HeroSection = () => {
                 </span>
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Trust Indicators - Footer of Hero */}
+        <div 
+          className="w-full mt-16 md:mt-24 lg:mt-28 flex justify-center animate-heroContent"
+          style={{ animationDelay: "3.2s" }}
+        >
+          <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-6 lg:gap-10 px-8 py-5 rounded-3xl md:rounded-full bg-white/5 border border-white/10 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.15)]">
+            <span className="flex items-center gap-3 font-mont font-semibold text-[0.8rem] md:text-[0.95rem] tracking-[0.1em] uppercase text-white/95">
+              <svg className="w-5 h-5 flex-shrink-0 drop-shadow-md" style={{ color: "hsl(48 95% 60%)" }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Sem compromisso
+            </span>
+            <span className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/30"></span>
+            <span className="flex items-center gap-3 font-mont font-semibold text-[0.8rem] md:text-[0.95rem] tracking-[0.1em] uppercase text-white/95">
+              <svg className="w-5 h-5 flex-shrink-0 drop-shadow-md" style={{ color: "hsl(48 95% 60%)" }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              Análise Gratuita
+            </span>
+            <span className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/30"></span>
+            <span className="flex items-center gap-3 font-mont font-semibold text-[0.8rem] md:text-[0.95rem] tracking-[0.1em] uppercase text-white/95">
+              <svg className="w-5 h-5 flex-shrink-0 drop-shadow-md" style={{ color: "hsl(48 95% 60%)" }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              100% Digital
+            </span>
           </div>
         </div>
 

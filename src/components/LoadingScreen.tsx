@@ -33,7 +33,7 @@ const LoadingScreen = () => {
           >
             {/* Logo Image */}
             <motion.img
-              src="/logo-branca.svg"
+              src="/logo-branca.png"
               alt="Sundeal Logo"
               className="w-48 md:w-64 mb-10 drop-shadow-xl"
               animate={{ 

@@ -183,7 +183,7 @@ const ComparativoSection = () => {
                 <img 
                   src={houseIcon} 
                   alt="Tradicional" 
-                  className="w-[85%] h-[85%] object-contain drop-shadow-xl"
+                  className="w-[85%] h-[85%] object-contain drop-shadow-xl scale-[1.8]"
                 />
               </div>
               <h3

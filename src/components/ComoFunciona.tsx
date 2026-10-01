@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useInView } from "framer-motion";
 
 import video3etapas from "@/assets/3_etapas_novo.mp4";
 
@@ -22,29 +22,49 @@ const stepData = [
 ];
 
 const ComoFunciona = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   
-  // Tupla para guardar [passo atual, direção da animação]
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Tupla para guardar [passo atual, direção da animação vertical]
   const [[activeStep, direction], setActiveStepState] = useState([0, 0]);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [targetPercentage, setTargetPercentage] = useState(0);
 
-  const setActiveStep = (newStep: number) => {
-    setActiveStepState((prev) => [newStep, newStep > prev[0] ? 1 : -1]);
-  };
+  useEffect(() => {
+    return scrollYProgress.onChange((latest) => {
+      setTargetPercentage(latest);
+      
+      let newStep = 0;
+      if (latest > 0.66) newStep = 2;
+      else if (latest > 0.33) newStep = 1;
+      
+      setActiveStepState((prev) => {
+        if (prev[0] !== newStep) {
+          return [newStep, newStep > prev[0] ? 1 : -1];
+        }
+        return prev;
+      });
+    });
+  }, [scrollYProgress]);
 
   const variants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
+      y: direction > 0 ? 40 : -40,
       opacity: 0
     }),
     center: {
       zIndex: 1,
-      x: 0,
+      y: 0,
       opacity: 1
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? 100 : -100,
+      y: direction < 0 ? 40 : -40,
       opacity: 0
     })
   };
@@ -57,14 +77,12 @@ const ComoFunciona = () => {
     }
   }, []);
 
-  // Lógica de reprodução do vídeo (Avançar e Voltar de trás pra frente)
+  // Lógica de reprodução do vídeo
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !videoLoaded || isNaN(video.duration)) return;
 
-    const targetPercentage = activeStep / (stepData.length - 1);
     const targetTime = targetPercentage * (video.duration - 0.1);
-
     let rafId: number;
 
     const animateVideo = () => {
@@ -80,13 +98,10 @@ const ComoFunciona = () => {
       }
 
       if (diff > 0) {
-         // Precisa avançar: dar o play nativo é perfeito
          if (video.paused) video.play().catch(() => {});
          rafId = requestAnimationFrame(animateVideo);
       } else {
-         // Voltar: Agora que o vídeo é All-Intra, o MP4 processa todos os frames suavemente!
          if (!video.paused) video.pause();
-         // Interpolação super suave e contínua do frame
          video.currentTime = video.currentTime + (diff * 0.12);
          rafId = requestAnimationFrame(animateVideo);
       }
@@ -97,191 +112,152 @@ const ComoFunciona = () => {
     return () => {
       cancelAnimationFrame(rafId);
     };
-  }, [activeStep, videoLoaded]);
-
-  // Framer Motion Swipe config
-  const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset: number, velocity: number) => {
-    return Math.abs(offset) * velocity;
-  };
-
-  const handleDragEnd = (e: any, { offset, velocity }: any) => {
-    const swipe = swipePower(offset.x, velocity.x);
-    if (swipe < -swipeConfidenceThreshold) {
-      // Swipe Left -> Next Step
-      if (activeStep < stepData.length - 1) setActiveStep(activeStep + 1);
-    } else if (swipe > swipeConfidenceThreshold) {
-      // Swipe Right -> Prev Step
-      if (activeStep > 0) setActiveStep(activeStep - 1);
-    }
-  };
+  }, [targetPercentage, videoLoaded]);
 
   return (
     <>
+      {/* Contêiner com altura estendida para permitir o scroll */}
       <section
         id="como-funciona"
-        className="relative py-20 md:py-32 overflow-hidden"
+        ref={containerRef}
+        className="relative h-[300vh]"
         style={{
           background: "linear-gradient(160deg, hsl(72 18% 92%) 0%, hsl(72 14% 84%) 85%, hsl(72 14% 84%) 100%)",
         }}
       >
-        {/* Background blobs */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse at 80% 20%, hsl(72 65% 45% / 0.1) 0%, transparent 55%)",
-          }}
-        />
-
-        <div className="relative z-10 w-full max-w-[1240px] mx-auto px-[6vw]">
+        {/* Elemento fixo que prende a visualização enquanto rolamos */}
+        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Background blobs */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "radial-gradient(ellipse at 80% 20%, hsl(72 65% 45% / 0.1) 0%, transparent 55%)",
+            }}
+          />
+
+          <div className="relative z-10 w-full max-w-[1240px] mx-auto px-[6vw]">
             
-            {/* Coluna da Esquerda: Título (No mobile fica em cima) */}
-            <div className="lg:col-span-4 flex flex-col lg:pt-16">
-              <span className="block text-xs font-bold tracking-[0.12em] uppercase text-sundeal-green-mid mb-3.5">
-                Como funciona
-              </span>
-              <motion.h2
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.6 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1, transition: { staggerChildren: 0.14 } }
-                }}
-                className="font-mont font-bold leading-[1.15] mb-6"
-                style={{
-                  fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
-                  color: "hsl(73 67% 32%)",
-                }}
-              >
-                <motion.span variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block mr-[0.25em]">Três</motion.span>
-                <motion.span variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block">etapas.</motion.span>
-                <br />
-                <motion.span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block mr-[0.25em]">Zero</motion.span>
-                <motion.span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block mr-[0.25em]">dor</motion.span>
-                <motion.span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block mr-[0.25em]">de</motion.span>
-                <motion.span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} variants={{ hidden: { opacity: 0, y: 15, x: 10, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, x: 0, filter: "blur(0px)", transition: { duration: 0.8 } } }} className="inline-block">cabeça.</motion.span>
-              </motion.h2>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
-              <p className="text-[#566b2a]/85 text-[1.05rem] leading-relaxed max-w-[400px]">
-                Transformamos o sol em desconto garantido na sua conta de luz, sem que você precise instalar nenhuma placa em casa.
-              </p>
-            </div>
+              {/* Coluna da Esquerda: Título */}
+              <div className="lg:col-span-4 flex flex-col pt-4 md:pt-0">
+                <span className="block text-xs font-bold tracking-[0.12em] uppercase text-sundeal-green-mid mb-3.5">
+                  Como funciona
+                </span>
+                <h2
+                  className="font-mont font-bold leading-[1.15] mb-6"
+                  style={{
+                    fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
+                    color: "hsl(73 67% 32%)",
+                  }}
+                >
+                  <span className="inline-block mr-[0.25em]">Três</span>
+                  <span className="inline-block">etapas.</span>
+                  <br />
+                  <span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} className="inline-block mr-[0.25em]">Zero</span>
+                  <span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} className="inline-block mr-[0.25em]">dor</span>
+                  <span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} className="inline-block mr-[0.25em]">de</span>
+                  <span style={{ backgroundImage: "linear-gradient(135deg, hsl(48 99% 48%) 0%, hsl(45 99% 45%) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }} className="inline-block">cabeça.</span>
+                </h2>
+                
+                <p className="text-[#566b2a]/85 text-[1.05rem] leading-relaxed max-w-[400px]">
+                  Transformamos o sol em desconto garantido na sua conta de luz, sem que você precise instalar nenhuma placa em casa.
+                </p>
+              </div>
 
-            {/* Coluna da Direita: Card Único Premium */}
-            <div className="lg:col-span-8">
-              <div 
-                className="flex flex-col w-full rounded-[2.5rem] overflow-hidden relative"
-                style={{
-                  background: "#e7e5e1",
-                  boxShadow: "0 40px 80px -20px rgba(0,0,0,0.15), 0 20px 40px -10px rgba(0,0,0,0.05), inset 0 0 0 1px rgba(255,255,255,0.7)",
-                }}
-              >
-                {/* Parte Superior: O Vídeo */}
-                <div className="w-full relative bg-transparent flex items-center justify-center">
-                  <video
-                    ref={videoRef}
-                    src={video3etapas}
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="w-full h-auto object-contain"
-                  />
-                  {/* Fade com base 100% sólida para eliminar a linha de corte, dissipando suavemente acima */}
-                  <div 
-                    className="absolute bottom-[-1px] left-0 w-full h-10 md:h-24 z-10 pointer-events-none"
-                    style={{ background: "linear-gradient(to top, rgba(231,229,225,1) 0%, rgba(231,229,225,1) 20%, rgba(231,229,225,0) 100%)" }}
-                  />
-                </div>
-
-                {/* Parte Inferior: Slider de Texto Arrastável */}
-                <div className="w-full h-[320px] sm:h-[280px] md:h-[260px] lg:h-[280px] relative z-20 flex flex-col bg-[#e7e5e1]">
-                  
-                  {/* Área arrastável */}
-                  <motion.div 
-                    className="flex-1 w-full cursor-grab active:cursor-grabbing px-6 sm:px-12 pt-6 pb-2"
-                    drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.2}
-                    onDragEnd={handleDragEnd}
-                  >
-                    <AnimatePresence mode="popLayout" initial={false} custom={direction}>
-                      <motion.div
-                        key={activeStep}
-                        custom={direction}
-                        variants={variants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
-                        className="w-full h-full flex flex-col justify-center"
-                      >
-                        <div
-                          className="font-mont text-sm font-bold tracking-[0.2em] mb-2"
-                          style={{ color: "hsl(73 67% 32%)" }}
-                        >
-                          ETAPA {stepData[activeStep].num}
-                        </div>
-                        <h3
-                          className="font-mont font-bold leading-tight mb-3"
-                          style={{
-                            fontSize: "clamp(1.3rem, 2.2vw, 1.6rem)",
-                            color: "hsl(73, 67%, 25%)",
-                          }}
-                        >
-                          {stepData[activeStep].title}
-                        </h3>
-                        <p
-                          className="text-[0.95rem] sm:text-[1.05rem] leading-relaxed font-medium"
-                          style={{ color: "#4a5d23", opacity: 0.85 }}
-                        >
-                          {stepData[activeStep].text}
-                        </p>
-                      </motion.div>
-                    </AnimatePresence>
-                  </motion.div>
-
-                  {/* Controles de Navegação Fixos no rodapé do card */}
-                  <div className="flex justify-between items-center px-6 sm:px-12 pb-8 md:pb-12 pt-0">
-                    {/* Indicadores (Pontinhos) */}
-                    <div className="flex gap-2">
-                      {stepData.map((_, idx) => (
-                        <div 
-                          key={idx} 
-                          className={`h-2.5 rounded-full transition-all duration-500 ${idx === activeStep ? 'w-10 bg-[#8dc63f] shadow-[0_0_8px_rgba(141,198,63,0.4)]' : 'w-2.5 bg-[#4a5d23]/15'}`}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Setas Elegantes e Sofisticadas */}
-                    <div className="flex gap-3 md:gap-4">
-                      <button 
-                        onClick={() => activeStep > 0 && setActiveStep(activeStep - 1)}
-                        className={`p-3 md:p-3.5 rounded-full transition-all bg-white shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-gray-100/50 flex items-center justify-center text-[#566b2a] ${activeStep === 0 ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer hover:scale-105 hover:shadow-[0_6px_20px_rgba(0,0,0,0.1)]'}`}
-                      >
-                        <svg width="20" height="20" className="md:w-[22px] md:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                      </button>
-                      <button 
-                        onClick={() => activeStep < stepData.length - 1 && setActiveStep(activeStep + 1)}
-                        className={`p-3 md:p-3.5 rounded-full transition-all bg-white shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-gray-100/50 flex items-center justify-center text-[#566b2a] ${activeStep === stepData.length - 1 ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer hover:scale-105 hover:shadow-[0_6px_20px_rgba(0,0,0,0.1)]'}`}
-                      >
-                        <svg width="20" height="20" className="md:w-[22px] md:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                      </button>
-                    </div>
+              {/* Coluna da Direita: Card Único Premium */}
+              <div className="lg:col-span-8">
+                <div 
+                  className="flex flex-col w-full rounded-[2.5rem] overflow-hidden relative"
+                  style={{
+                    background: "#e7e5e1",
+                    boxShadow: "0 40px 80px -20px rgba(0,0,0,0.15), 0 20px 40px -10px rgba(0,0,0,0.05), inset 0 0 0 1px rgba(255,255,255,0.7)",
+                  }}
+                >
+                  {/* Parte Superior: O Vídeo */}
+                  <div className="w-full relative bg-transparent flex items-center justify-center">
+                    <video
+                      ref={videoRef}
+                      src={video3etapas}
+                      muted
+                      playsInline
+                      preload="auto"
+                      className="w-full max-h-[220px] md:max-h-[350px] object-contain"
+                    />
+                    {/* Fade com base 100% sólida para eliminar a linha de corte, dissipando suavemente acima */}
+                    <div 
+                      className="absolute bottom-[-1px] left-0 w-full h-10 md:h-24 z-10 pointer-events-none"
+                      style={{ background: "linear-gradient(to top, rgba(231,229,225,1) 0%, rgba(231,229,225,1) 20%, rgba(231,229,225,0) 100%)" }}
+                    />
                   </div>
 
+                  {/* Parte Inferior: Slider de Texto (agora acionado por scroll) */}
+                  <div className="w-full h-[220px] sm:h-[200px] md:h-[220px] lg:h-[240px] relative z-20 flex flex-col bg-[#e7e5e1]">
+                    
+                    {/* Área de texto com crossfade vertical */}
+                    <div className="flex-1 w-full px-6 sm:px-12 pt-6 pb-2 relative overflow-hidden">
+                      <AnimatePresence mode="wait" initial={false} custom={direction}>
+                        <motion.div
+                          key={activeStep}
+                          custom={direction}
+                          variants={variants}
+                          initial="enter"
+                          animate="center"
+                          exit="exit"
+                          transition={{ duration: 0.5, ease: "easeInOut" }}
+                          className="w-full h-full flex flex-col justify-center absolute inset-0 px-6 sm:px-12 pt-6"
+                        >
+                          <div
+                            className="font-mont text-sm font-bold tracking-[0.2em] mb-2"
+                            style={{ color: "hsl(73 67% 32%)" }}
+                          >
+                            ETAPA {stepData[activeStep].num}
+                          </div>
+                          <h3
+                            className="font-mont font-bold leading-tight mb-3"
+                            style={{
+                              fontSize: "clamp(1.3rem, 2.2vw, 1.6rem)",
+                              color: "hsl(73, 67%, 25%)",
+                            }}
+                          >
+                            {stepData[activeStep].title}
+                          </h3>
+                          <p
+                            className="text-[0.95rem] sm:text-[1.05rem] leading-relaxed font-medium max-w-[95%]"
+                            style={{ color: "#4a5d23", opacity: 0.85 }}
+                          >
+                            {stepData[activeStep].text}
+                          </p>
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
+
+                    {/* Controles de Navegação Fixos no rodapé do card */}
+                    <div className="flex justify-between items-center px-6 sm:px-12 pb-8 pt-0 relative z-30">
+                      {/* Indicadores (Pontinhos) */}
+                      <div className="flex gap-2">
+                        {stepData.map((_, idx) => (
+                          <div 
+                            key={idx} 
+                            className={`h-2.5 rounded-full transition-all duration-500 ${idx === activeStep ? 'w-10 bg-[#8dc63f] shadow-[0_0_8px_rgba(141,198,63,0.4)]' : 'w-2.5 bg-[#4a5d23]/15'}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
-              </div>
 
-              {/* Texto explicativo inferior refinado e luxuoso */}
-              <div className="flex justify-center mt-6 md:mt-10 px-4">
-                <span className="text-[0.6rem] md:text-[0.8rem] font-semibold tracking-[0.15em] md:tracking-[0.2em] text-[#566b2a] uppercase bg-white/40 px-5 py-2 md:px-8 md:py-3 rounded-full backdrop-blur-md shadow-sm border border-white/50 cursor-default transition-all duration-500 hover:bg-white/60 text-center">
-                  ← Arraste o card para trocar de etapa →
-                </span>
-              </div>
+                {/* Texto explicativo inferior adaptado para o novo modelo de scroll */}
+                <div className="flex justify-center mt-6 md:mt-10 px-4">
+                  <span className="text-[0.6rem] md:text-[0.8rem] font-semibold tracking-[0.15em] md:tracking-[0.2em] text-[#566b2a] uppercase bg-white/40 px-5 py-2 md:px-8 md:py-3 rounded-full backdrop-blur-md shadow-sm border border-white/50 cursor-default transition-all duration-500 hover:bg-white/60 text-center flex items-center gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="animate-bounce"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                    Continue rolando para ver as etapas
+                  </span>
+                </div>
 
+              </div>
             </div>
           </div>
         </div>

@@ -39,7 +39,7 @@ const FooterSection = () => {
               <img
                 src={sundealLogo}
                 alt="Sundeal"
-                className="h-16 md:h-20 w-auto object-contain object-left"
+                className="h-16 md:h-20 w-auto object-contain object-left scale-[1.8] origin-left"
               />
             </div>
 

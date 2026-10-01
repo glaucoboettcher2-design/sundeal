@@ -58,7 +58,8 @@ const Navbar = () => {
             height: pastHero ? "1.75rem" : "4.2rem",
             position: pastHero ? "relative" : "absolute",
             left: pastHero ? "0" : "50%",
-            transform: pastHero ? "translateX(0)" : "translateX(-50%)",
+            transform: pastHero ? "translateX(0) scale(1.8)" : "translateX(-50%) scale(1.8)",
+            transformOrigin: pastHero ? "left center" : "center top",
           }}
         />
 

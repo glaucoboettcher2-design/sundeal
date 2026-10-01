@@ -259,7 +259,6 @@ const ComoFunciona = () => {
               </div>
             </div>
           </div>
-        </div>
       </section>
     </>
   );

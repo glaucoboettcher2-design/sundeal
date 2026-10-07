@@ -97,14 +97,12 @@ const ComoFunciona = () => {
          return;
       }
 
-      if (diff > 0) {
-         if (video.paused) video.play().catch(() => {});
-         rafId = requestAnimationFrame(animateVideo);
-      } else {
-         if (!video.paused) video.pause();
-         video.currentTime = video.currentTime + (diff * 0.12);
-         rafId = requestAnimationFrame(animateVideo);
-      }
+      // Interpola a posição do vídeo (scrubbing) para acompanhar a velocidade do scroll exata
+      if (!video.paused) video.pause();
+      
+      // Velocidade de ajuste responsiva à distância
+      video.currentTime = video.currentTime + (diff * 0.15);
+      rafId = requestAnimationFrame(animateVideo);
     };
 
     rafId = requestAnimationFrame(animateVideo);
@@ -120,7 +118,7 @@ const ComoFunciona = () => {
       <section
         id="como-funciona"
         ref={containerRef}
-        className="relative h-[300vh]"
+        className="relative h-[400vh]"
         style={{
           background: "linear-gradient(160deg, hsl(72 18% 92%) 0%, hsl(72 14% 84%) 85%, hsl(72 14% 84%) 100%)",
         }}
